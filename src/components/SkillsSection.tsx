@@ -43,11 +43,12 @@ export function SkillsSection() {
     { id: 23, name: "Vercel", logoPath: "/logos/Vercel.png", category: "DevOps", color: "#000000", size: 1.1, x: 0.9, y: 0.9 },
     
     // Development Tools
-    { id: 24, name: "NPM", logoPath: "/logos/NPM.png", category: "Tools", color: "#CB3837", size: 1.0, x: 0.1, y: 0.8 },
-    { id: 25, name: "Postman", logoPath: "/logos/Postman.png", category: "Tools", color: "#FF6C37", size: 1.1, x: 0.3, name: "Slack", logoPath: "/logos/Slack.png", category: "Tools", color: "#4A154B", size: 1.0, x: 0.6, y: 0.6 },
-    { id: 27, name: "Eclipse", logoPath: "/logos/Eclipse.png", category: "Tools", color: "#2C2255", size: 1.1, x: 0.8, y: 0.8 },
-    { id: 28, name: "JetBrains", logoPath: "/logos/JetBrains.png", category: "Tools", color: "#000000", size: 1.2, x: 0.2, y: 0.2 },
-    { id: 29, name: "Visual Studio", logoPath: "/logos/Visual Studio.png", category: "Tools", color: "#5C2D91", size: 1.1, x: 0.7, y: 0.7 }
+    { id: 24, name: "NPM", logoPath: "/logos/NPM.png", category: "Tools", color: "#CB3837", size: 1.0, x: 0.1, y: 0.8, height: 0.6 },
+    { id: 25, name: "Postman", logoPath: "/logos/Postman.png", category: "Tools", color: "#FF6C37", size: 1.1, x: 0.3, y: 0.5, height: 0.7 },
+    { id: 26, name: "Slack", logoPath: "/logos/Slack.png", category: "Tools", color: "#4A154B", size: 1.0, x: 0.6, y: 0.6, height: 0.5 },
+    { id: 27, name: "Eclipse", logoPath: "/logos/Eclipse.png", category: "Tools", color: "#2C2255", size: 1.1, x: 0.8, y: 0.8, height: 0.7 },
+    { id: 28, name: "JetBrains", logoPath: "/logos/JetBrains.png", category: "Tools", color: "#000000", size: 1.2, x: 0.2, y: 0.2, height: 0.8 },
+    { id: 29, name: "Visual Studio", logoPath: "/logos/Visual Studio.png", category: "Tools", color: "#5C2D91", size: 1.1, x: 0.7, y: 0.7, height: 0.7 }
   ];
 
   // Update time for animation
