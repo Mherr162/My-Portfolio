@@ -52,7 +52,7 @@ export function ContactSection() {
   return (
     <section 
       id="contact" 
-      className="min-h-screen py-40 px-6 md:px-16 relative bg-[url('/textures/crumpled-paper.png')] bg-repeat"
+      className="min-h-screen py-40 px-6 md:px-16 relative bg-primary/3 dark:bg-primary/15"
     >
       <div className="max-w-6xl mx-auto space-y-16">
         <FadeInSection delay={0}>
@@ -103,50 +103,6 @@ export function ContactSection() {
             </form>
           </FadeInSection>
         </div>
-
-        <FadeInSection delay={0.4}>
-          <div>
-            <h2 className="text-4xl font-bold mb-8">FAQ</h2>
-            <p className="text-muted-foreground mb-8">
-              Frequently asked questions about my services and work process.
-            </p>
-
-            <Accordion type="single" collapsible className="space-y-4">
-              <AccordionItem value="item-1" className="border border-neutral-800 rounded-lg px-4 py-2">
-                <AccordionTrigger className="text-lg font-medium">
-                  What types of services do you offer?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  I offer a range of software development services including full-stack web development,
-                  database design, and website optimization. My expertise spans both frontend and backend
-                  technologies, with a focus on creating responsive, performant applications.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-2" className="border border-neutral-800 rounded-lg px-4 py-2">
-                <AccordionTrigger className="text-lg font-medium">
-                  What do you need from me to start a project?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  To get started, I need a clear description of your project objectives, any design
-                  references you have, and your timeline. I'll then work with you to develop a
-                  detailed scope of work and project plan.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-3" className="border border-neutral-800 rounded-lg px-4 py-2">
-                <AccordionTrigger className="text-lg font-medium">
-                  How long does it take to complete a project?
-                </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
-                  Project timelines vary depending on scope and complexity. A simple website might take
-                  2-4 weeks, while complex web applications can take several months. I'll provide a detailed
-                  timeline during our initial consultation.
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </FadeInSection>
       </div>
     </section>
   )

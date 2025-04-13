@@ -3,7 +3,7 @@ import { Separator } from "./ui/separator";
 
 export function Footer() {
   return (
-    <footer className="py-16 px-6 md:px-16 bg-background">
+    <footer className="py-16 px-6 md:px-16 bg-primary/3 dark:bg-primary/15">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
           <Link href="/" className="text-xl font-bold mb-6 md:mb-0">

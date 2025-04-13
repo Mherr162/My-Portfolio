@@ -23,7 +23,7 @@ export function VolunteeringSection() {
   return (
     <section 
       id="volunteering" 
-      className="min-h-screen py-40 px-6 md:px-16 relative bg-[url('/textures/crumpled-paper.png')] bg-repeat"
+      className="min-h-screen py-40 px-6 md:px-16 relative bg-primary/3 dark:bg-primary/15"
     >
       <div className="max-w-6xl mx-auto space-y-16">
         <FadeInSection delay={0}>
