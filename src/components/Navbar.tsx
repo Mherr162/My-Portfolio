@@ -2,483 +2,212 @@
 
 import Link from "next/link";
 import { ThemeToggle } from "./ui/ThemeToggle";
-import { motion, useMotionValue, useTransform, useSpring, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
-
-// Star component for the space effect
-const Star = ({ delay, duration, size, x, y, speed }: { delay: number; duration: number; size: number; x: number; y: number; speed: number }) => (
-  <motion.div
-    className="absolute bg-white/20 rounded-full"
-    style={{
-      width: size,
-      height: size,
-      left: `${x}%`,
-      top: `${y}%`,
-    }}
-    initial={{ scale: 0, opacity: 0 }}
-    animate={{
-      scale: [0, 1, 0],
-      opacity: [0, 0.8, 0],
-      y: [0, -100],
-    }}
-    transition={{
-      duration,
-      delay,
-      repeat: Infinity,
-      ease: "linear",
-    }}
-  />
-);
-
-// Line component for the space effect
-const SpaceLine = ({ delay, duration, x, y, length, angle }: { delay: number; duration: number; x: number; y: number; length: number; angle: number }) => (
-  <motion.div
-    className="absolute bg-gradient-to-r from-white/20 to-transparent"
-    style={{
-      width: length,
-      height: 1,
-      left: `${x}%`,
-      top: `${y}%`,
-      transform: `rotate(${angle}deg)`,
-    }}
-    initial={{ opacity: 0, scaleX: 0 }}
-    animate={{
-      opacity: [0, 0.5, 0],
-      scaleX: [0, 1, 0],
-    }}
-    transition={{
-      duration,
-      delay,
-      repeat: Infinity,
-      ease: "linear",
-    }}
-  />
-);
-
-// Rain drop component
-const RainDrop = ({ delay, duration, x, speed }: { delay: number; duration: number; x: number; speed: number }) => (
-  <motion.div
-    className="absolute w-[1px] h-[12px] bg-white/15"
-    style={{
-      left: `${x}%`,
-      top: "-12px",
-    }}
-    initial={{ y: -12, opacity: 0 }}
-    animate={{
-      y: ["-12px", "100vh"],
-      opacity: [0, 0.2, 0],
-    }}
-    transition={{
-      duration,
-      delay,
-      repeat: Infinity,
-      ease: "linear",
-    }}
-  />
-);
-
-// Cloud component
-const Cloud = ({ delay, duration, x, y, size }: { delay: number; duration: number; x: number; y: number; size: number }) => (
-  <motion.div
-    className="absolute"
-    style={{
-      left: `${x}%`,
-      top: `${y}%`,
-      width: size,
-      height: size * 0.6,
-    }}
-    initial={{ opacity: 0, x: -100 }}
-    animate={{
-      opacity: [0, 0.15, 0],
-      x: ["-100%", "200%"],
-    }}
-    transition={{
-      duration,
-      delay,
-      repeat: Infinity,
-      ease: "linear",
-    }}
-  >
-    {/* Main cloud body */}
-    <div className="absolute inset-0 bg-white/10 rounded-full" />
-    
-    {/* Cloud puffs - varying sizes and positions */}
-    <div className="absolute -top-1/3 -left-1/4 w-2/3 h-2/3 bg-white/10 rounded-full blur-sm" />
-    <div className="absolute -top-1/3 -right-1/4 w-2/3 h-2/3 bg-white/10 rounded-full blur-sm" />
-    <div className="absolute -bottom-1/3 left-1/4 w-2/3 h-2/3 bg-white/10 rounded-full blur-sm" />
-    <div className="absolute -bottom-1/3 right-1/4 w-2/3 h-2/3 bg-white/10 rounded-full blur-sm" />
-    
-    {/* Additional cloud details */}
-    <div className="absolute -top-1/4 left-1/4 w-1/2 h-1/2 bg-white/8 rounded-full blur-md" />
-    <div className="absolute -top-1/4 right-1/4 w-1/2 h-1/2 bg-white/8 rounded-full blur-md" />
-    <div className="absolute -bottom-1/4 left-1/4 w-1/2 h-1/2 bg-white/8 rounded-full blur-md" />
-    <div className="absolute -bottom-1/4 right-1/4 w-1/2 h-1/2 bg-white/8 rounded-full blur-md" />
-    
-    {/* Cloud highlights */}
-    <div className="absolute top-1/4 left-1/4 w-1/3 h-1/3 bg-white/5 rounded-full blur-lg" />
-    <div className="absolute top-1/4 right-1/4 w-1/3 h-1/3 bg-white/5 rounded-full blur-lg" />
-    
-    {/* Cloud shadows */}
-    <div className="absolute bottom-1/4 left-1/4 w-1/3 h-1/3 bg-white/3 rounded-full blur-xl" />
-    <div className="absolute bottom-1/4 right-1/4 w-1/3 h-1/3 bg-white/3 rounded-full blur-xl" />
-    
-    {/* Overall cloud texture */}
-    <div className="absolute inset-0 bg-white/5 rounded-full blur-md" />
-  </motion.div>
-);
-
-// Floating particle component
-const Particle = ({ delay, duration, x, y, size, color }: { delay: number; duration: number; x: number; y: number; size: number; color: string }) => (
-  <motion.div
-    className="absolute rounded-full"
-    style={{
-      width: size,
-      height: size,
-      left: `${x}%`,
-      top: `${y}%`,
-      background: color,
-    }}
-    initial={{ scale: 0, opacity: 0 }}
-    animate={{
-      scale: [0, 1, 0],
-      opacity: [0, 0.6, 0],
-      y: [0, -100],
-    }}
-    transition={{
-      duration,
-      delay,
-      repeat: Infinity,
-      ease: "linear",
-    }}
-  />
-);
-
-// Light effect component
-const LightEffect = ({ isLight }: { isLight: boolean }) => {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return (
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0" />
-      </div>
-    );
-  }
-
-  return (
-    <motion.div 
-      className="fixed inset-0 pointer-events-none z-0"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 0.3 }}
-      transition={{ duration: 0.5 }}
-    >
-      <div 
-        className="fixed inset-0"
-        style={{
-          opacity: 0,
-          backgroundImage: `radial-gradient(circle at center, rgba(255, 240, 200, 0.95) 0%, rgba(255, 240, 200, 0.8) 30%, rgba(255, 240, 200, 0.5) 50%, rgba(255, 240, 200, 0) 80%)`,
-          backgroundPosition: 'center',
-          backgroundSize: '100% 100%',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
-        <motion.div
-          animate={{
-            opacity: [0, 0.3, 0],
-            scale: [1, 1.2, 1],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <div className="absolute inset-0 overflow-hidden">
-            {Array.from({ length: 50 }).map((_, i) => (
-              <motion.div
-                key={i}
-                className="absolute bg-white/30 rounded-full"
-                style={{
-                  width: Math.random() * 4 + 2,
-                  height: Math.random() * 4 + 2,
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                }}
-                animate={{
-                  y: [0, -100],
-                  opacity: [0, 0.5, 0],
-                }}
-                transition={{
-                  duration: 2 + Math.random() * 2,
-                  repeat: Infinity,
-                  delay: Math.random() * 2,
-                  ease: "linear",
-                }}
-              />
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </motion.div>
-  );
-};
+import { Download } from "lucide-react";
 
 export function Navbar() {
-  const [isHovered, setIsHovered] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const { theme } = useTheme();
-  const [stars, setStars] = useState<Array<{ id: number; x: number; y: number; size: number; speed: number }>>([]);
-  const [lines, setLines] = useState<Array<{ id: number; x: number; y: number; length: number; angle: number }>>([]);
+  const [activeSection, setActiveSection] = useState("hero");
+  const [isHovered, setIsHovered] = useState(false);
 
-  // Handle mouse movement
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
+    const handleScroll = () => {
+      const sections = ["hero", "about", "projects", "volunteering", "contact"];
+      const currentSection = sections.find(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          return rect.top <= 100 && rect.bottom >= 100;
+        }
+        return false;
+      }) || "hero";
+      
+      setActiveSection(currentSection);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, [mouseX, mouseY]);
-
-  // Generate stars and lines
-  useEffect(() => {
-    const newStars = Array.from({ length: 8 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      size: 1 + Math.random() * 2,
-      speed: 2 + Math.random() * 3,
-    }));
-    setStars(newStars);
-
-    const newLines = Array.from({ length: 5 }, (_, i) => ({
-      id: i,
-      x: Math.random() * 100,
-      y: Math.random() * 100,
-      length: 20 + Math.random() * 30,
-      angle: Math.random() * 360,
-    }));
-    setLines(newLines);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <>
-      <LightEffect isLight={theme === "light"} />
-      <nav className="fixed top-0 left-0 right-0 z-50 p-6 md:px-16 flex justify-between items-center">
-        <div className="flex items-center gap-8">
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="relative">
-              {/* Space background */}
+    <div className="fixed top-0 left-0 right-0 z-50">
+      <div className="max-w-[1920px] mx-auto relative px-3 py-3">
+        {/* Logo */}
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="absolute left-8 top-1/3 -translate-y-1/2 z-10"
+        >
+          <Link href="#hero" className="group relative block">
+            <div className="relative overflow-hidden rounded-lg p-1 -m-1">
               <motion.div
-                className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent rounded-lg"
+                className="absolute inset-0 bg-gradient-to-r from-primary/10 to-white/5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 animate={{
-                  opacity: [0.5, 0.8, 0.5],
+                  scale: isHovered ? 1.1 : 1,
                 }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
+                transition={{ duration: 0.3 }}
               />
-              
-              {/* Stars */}
-              <div className="absolute inset-0 overflow-hidden rounded-lg">
-                {stars.map((star) => (
-                  <Star
-                    key={star.id}
-                    delay={star.id * 0.5}
-                    duration={star.speed}
-                    size={star.size}
-                    x={star.x}
-                    y={star.y}
-                    speed={star.speed}
-                  />
-                ))}
-              </div>
-
-              {/* Space lines */}
-              <div className="absolute inset-0 overflow-hidden rounded-lg">
-                {lines.map((line) => (
-                  <SpaceLine
-                    key={line.id}
-                    delay={line.id * 0.8}
-                    duration={3 + Math.random() * 2}
-                    x={line.x}
-                    y={line.y}
-                    length={line.length}
-                    angle={line.angle}
-                  />
-                ))}
-              </div>
-              
-              {/* Logo text */}
               <motion.div
-                className="relative font-bold text-2xl tracking-tight"
-                onHoverStart={() => setIsHovered(true)}
-                onHoverEnd={() => setIsHovered(false)}
+                className="relative flex items-center"
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
               >
-                <motion.span
-                  className="text-primary relative"
-                  animate={{
-                    x: isHovered ? [0, -5, 0] : 0,
-                    rotate: isHovered ? [0, -10, 0] : 0,
-                    scale: isHovered ? [1, 1.1, 1] : 1,
-                  }}
-                  transition={{
-                    duration: 0.5,
-                    ease: "easeInOut",
-                  }}
-                >
-                  MH
-                  <motion.div
-                    className="absolute -inset-1 bg-primary/20 rounded-full blur-sm"
+                <span className="font-bold text-xl tracking-tight flex items-center gap-1">
+                  <motion.span 
+                    className="bg-gradient-to-r from-primary via-primary/90 to-primary/80 bg-clip-text text-transparent relative"
                     animate={{
-                      scale: isHovered ? [1, 1.5, 1] : 1,
-                      opacity: isHovered ? [0.5, 0.8, 0.5] : 0.5,
+                      backgroundPosition: isHovered ? ["0% 0%", "100% 0%"] : "0% 0%",
                     }}
                     transition={{
-                      duration: 0.5,
-                      ease: "easeInOut",
+                      duration: 1.5,
+                      repeat: isHovered ? Infinity : 0,
                     }}
-                  />
-                </motion.span>
-                <motion.span
-                  className="text-white/90 relative"
-                  animate={{
-                    x: isHovered ? [0, 5, 0] : 0,
-                    rotate: isHovered ? [0, 10, 0] : 0,
-                    scale: isHovered ? [1, 1.1, 1] : 1,
-                  }}
-                  transition={{
-                    duration: 0.5,
-                    ease: "easeInOut",
-                  }}
-                >
-                  {" "}Portfolio
-                  <motion.div
-                    className="absolute -inset-1 bg-white/10 rounded-full blur-sm"
+                    style={{
+                      backgroundSize: "200% 100%",
+                    }}
+                  >
+                    MH
+                  </motion.span>
+                  <motion.span 
+                    className="bg-gradient-to-r from-white/90 via-white/80 to-white/70 bg-clip-text text-transparent relative"
                     animate={{
-                      scale: isHovered ? [1, 1.5, 1] : 1,
-                      opacity: isHovered ? [0.5, 0.8, 0.5] : 0.5,
+                      backgroundPosition: isHovered ? ["0% 0%", "100% 0%"] : "0% 0%",
                     }}
                     transition={{
-                      duration: 0.5,
-                      ease: "easeInOut",
+                      duration: 1.5,
+                      repeat: isHovered ? Infinity : 0,
+                      delay: 0.1,
                     }}
-                  />
-                </motion.span>
+                    style={{
+                      backgroundSize: "200% 100%",
+                    }}
+                  >
+                    Portfolio
+                  </motion.span>
+                </span>
               </motion.div>
-
-              {/* Decorative elements */}
               <motion.div
-                className="absolute -top-2 -right-2 w-2 h-2 bg-primary rounded-full"
+                className="absolute bottom-0 left-1 right-1 h-[1px] bg-gradient-to-r from-primary/50 via-white/30 to-transparent origin-left"
+                initial={{ scaleX: 0 }}
                 animate={{
-                  scale: [1, 1.5, 1],
-                  opacity: [0.5, 1, 0.5],
-                  rotate: [0, 180, 360],
+                  scaleX: isHovered ? 1 : 0,
                 }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              <motion.div
-                className="absolute -bottom-2 -left-2 w-2 h-2 bg-primary rounded-full"
-                animate={{
-                  scale: [1, 1.5, 1],
-                  opacity: [0.5, 1, 0.5],
-                  rotate: [360, 180, 0],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: 1,
-                }}
+                transition={{ duration: 0.3 }}
               />
             </div>
-          </motion.div>
-        </div>
-        <div className="flex items-center gap-8">
-          <Link href="#hero" className="text-sm md:text-base hover:text-white/80 transition-colors">
-            HOME
           </Link>
-          <Link href="#about" className="text-sm md:text-base hover:text-white/80 transition-colors">
-            ABOUT
-          </Link>
-          <Link href="#projects" className="text-sm md:text-base hover:text-white/80 transition-colors">
-            MY WORKS
-          </Link>
-          <Link href="#volunteering" className="text-sm md:text-base hover:text-white/80 transition-colors">
-            VOLUNTEERING
-          </Link>
-          <div 
-            className="relative"
-            onMouseEnter={() => setIsResourcesOpen(true)}
-            onMouseLeave={() => setIsResourcesOpen(false)}
+        </motion.div>
+
+        {/* Navigation */}
+        <div className="flex justify-center">
+          <motion.nav 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="relative flex items-center gap-2 px-3 py-3 rounded-full bg-black/20 backdrop-blur-xl border border-white/5 shadow-lg"
           >
-            <button className="text-sm md:text-base hover:text-white/80 transition-colors">
-              RESOURCES
-            </button>
-            <AnimatePresence>
-              {isResourcesOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute top-full left-0 mt-2"
+            <div className="flex items-center gap-2">
+              {[
+                { href: "#hero", label: "HOME" },
+                { href: "#about", label: "ABOUT" },
+                { href: "#projects", label: "MY WORKS" },
+                { href: "#volunteering", label: "VOLUNTEERING" }
+              ].map((item) => (
+                <div key={item.href} className="relative group">
+                  <div 
+                    className={`absolute -top-2 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full transition-all duration-300 
+                      ${activeSection === item.href.slice(1) ? "bg-white shadow-[0_0_8px_3px_rgba(255,255,255,0.3)]" : "bg-transparent"}`} 
+                  />
+                  <Link 
+                    href={item.href}
+                    className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full
+                      ${activeSection === item.href.slice(1) 
+                        ? "text-white bg-white/10" 
+                        : "text-white/70 hover:text-white hover:bg-white/5"}`}
+                  >
+                    {item.label}
+                  </Link>
+                </div>
+              ))}
+
+              <div className="relative group">
+                <button 
+                  onClick={() => setIsResourcesOpen(!isResourcesOpen)}
+                  className="px-4 py-2 text-sm font-medium text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 rounded-full"
                 >
-                  <div className="flex flex-col gap-3">
-                    <Link 
-                      href="https://www.linkedin.com/in/michel-herrera-760aa1288" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-sm hover:text-white/80 transition-colors"
+                  RESOURCES
+                </button>
+                <AnimatePresence>
+                  {isResourcesOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-2 py-2 px-4 bg-black/20 backdrop-blur-xl border border-white/5 rounded-2xl shadow-lg min-w-[140px]"
                     >
-                      LinkedIn
-                    </Link>
-                    <Link 
-                      href="https://github.com/mherr162" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-sm hover:text-white/80 transition-colors"
-                    >
-                      GitHub
-                    </Link>
-                    <Link 
-                      href="/resume" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="text-sm hover:text-white/80 transition-colors"
-                    >
-                      Resume
-                    </Link>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-          <Link href="#contact" className="text-sm md:text-base hover:text-white/80 transition-colors">
-            GET IN TOUCH
-          </Link>
+                      <div className="flex flex-col gap-1">
+                        {[
+                          { href: "https://www.linkedin.com/in/michel-herrera-760aa1288", label: "LinkedIn" },
+                          { href: "https://github.com/mherr162", label: "GitHub" },
+                          { href: "/resume", label: "Resume" }
+                        ].map((item) => (
+                          <Link 
+                            key={item.href}
+                            href={item.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/5 transition-all duration-300 rounded-lg"
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              <div className="h-5 w-[1px] bg-white/10 mx-2" />
+
+              <div className="flex items-center gap-3">
+                <ThemeToggle />
+                <Link 
+                  href="#contact"
+                  className={`px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full
+                    ${activeSection === "contact" 
+                      ? "text-white bg-white/20" 
+                      : "text-white/90 bg-white/10 hover:bg-white/15"}`}
+                >
+                  GET IN TOUCH
+                </Link>
+              </div>
+            </div>
+          </motion.nav>
+        </div>
+
+        {/* Right Side Actions */}
+        <div className="absolute right-8 top-1/3 -translate-y-1/2 flex items-center gap-4 z-10">
+          {/* Resume Download Button */}
+          <motion.a
+            href="/resume.pdf"
+            download
+            className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-full text-sm font-medium hover:bg-primary/90 transition-colors"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Download className="h-4 w-4" />
+            <span>Resume</span>
+          </motion.a>
+          
+          {/* Theme Toggle */}
           <ThemeToggle />
         </div>
-      </nav>
-    </>
+      </div>
+    </div>
   );
 }

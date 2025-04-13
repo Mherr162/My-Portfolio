@@ -4,8 +4,25 @@ import { ScrollToTopButton } from "@/components/ScrollToTopButton";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 
 export const metadata: Metadata = {
-  title: "Michel Herrera | Software Engineer",
-  description: "Associate Software Engineer portfolio showcasing skills, experience, and projects.",
+  title: "Michel Herrera | Software Engineer | Full Stack Developer",
+  description: "Software Engineer portfolio showcasing skills in React, Node.js, TypeScript, and modern web technologies. Full-stack developer with expertise in frontend and backend development.",
+  keywords: "Software Engineer, Full Stack Developer, React Developer, Web Developer, Frontend Developer, Backend Developer, JavaScript, TypeScript, Node.js, Next.js, Portfolio",
+  authors: [{ name: "Michel Herrera" }],
+  creator: "Michel Herrera",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://michelherrera.com",
+    title: "Michel Herrera | Software Engineer",
+    description: "Software Engineer portfolio showcasing skills in React, Node.js, TypeScript, and modern web technologies.",
+    siteName: "Michel Herrera Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Michel Herrera | Software Engineer",
+    description: "Software Engineer portfolio showcasing skills in React, Node.js, TypeScript, and modern web technologies.",
+    creator: "@michelherrera",
+  },
 };
 
 export default function RootLayout({
@@ -25,7 +42,7 @@ export default function RootLayout({
       <body className="min-h-screen antialiased">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

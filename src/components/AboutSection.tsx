@@ -8,17 +8,43 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const text = "Highlighting my transition from a licensed electrician with extensive hands-on experience to a software developer with a robust academic foundation in computer science.";
 
+// Add job titles for ATS compatibility
+const jobTitles = [
+  "Software Engineer",
+  "Full Stack Developer",
+  "Frontend Developer",
+  "React Developer",
+  "Web Developer"
+];
+
 export function AboutSection() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const words = text.split(" ");
 
   return (
-    <section id="about" className="min-h-screen py-32 px-6 md:px-16 relative bg-primary/3 dark:bg-primary/15">
+    <section id="about" className="min-h-screen py-40 px-6 md:px-16 relative bg-primary/3 dark:bg-primary/15">
       <div className="max-w-6xl mx-auto space-y-32">
         <div className="relative">
           <FadeInSection delay={0}>
             <h5 className="text-sm uppercase tracking-wider text-muted-foreground mb-2">Get To Know</h5>
             <h2 className="section-title font-bold mb-12">ABOUT</h2>
+          </FadeInSection>
+
+          {/* Job Titles for ATS */}
+          <FadeInSection delay={0.1}>
+            <div className="mb-8">
+              <h3 className="text-lg font-medium mb-3">Professional Titles:</h3>
+              <div className="flex flex-wrap gap-2">
+                {jobTitles.map((title, index) => (
+                  <span 
+                    key={index} 
+                    className="px-3 py-1 bg-primary/10 rounded-full text-sm font-medium"
+                  >
+                    {title}
+                  </span>
+                ))}
+              </div>
+            </div>
           </FadeInSection>
 
           {/* Main About content */}
@@ -107,9 +133,7 @@ export function AboutSection() {
                     onPlay={() => setIsVideoPlaying(true)}
                     onPause={() => setIsVideoPlaying(false)}
                   />
-                  <p className="text-sm text-center text-muted-foreground mt-2">
-                    Watch my journey from electrician to software developer
-                  </p>
+                  
                 </div>
               </div>
             </FadeInSection>
@@ -126,11 +150,11 @@ export function AboutSection() {
                   </p>
                   <p className="mb-4">
                     While maintaining my role as an electrician, I pursued a Bachelor's degree in Computer Science
-                    at Florida International University, completing my education in 2024.
+                    at Florida International University.
                   </p>
                   <p>
                     Driven by a mission to build exceptional digital experiences, I've developed skills in Java,
-                    Python, JavaScript, and various web technologies, launching my career as an Associate Software
+                    Python, JavaScript, and various web technologies, launching my career as a Software
                     Developer at Amazing Minds Therapy.
                   </p>
                 </div>
