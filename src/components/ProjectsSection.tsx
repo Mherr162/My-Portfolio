@@ -1,7 +1,6 @@
 "use client"
 
 import { ProjectCard } from "./ui/ProjectCard";
-import { FadeInSection } from "./ui/FadeInSection";
 
 const projects = [
   {
@@ -24,24 +23,20 @@ const projects = [
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-24 px-6 md:px-16 bg-primary/5 dark:bg-primary/10">
+    <section id="projects" className="min-h-screen py-32 px-6 md:px-16 relative bg-primary/5 dark:bg-primary/10">
       <div className="max-w-6xl mx-auto space-y-16">
-        <FadeInSection delay={0}>
-          <h2 className="section-title font-bold">MY WORKS</h2>
-        </FadeInSection>
+        <h2 className="section-title font-bold">MY WORKS</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <FadeInSection key={project.id} delay={0.2 * (index + 1)}>
-              <div className="relative z-10">
-                <ProjectCard
-                  title={project.title}
-                  description={project.description}
-                  image={project.image}
-                  link={project.link}
-                  technologies={project.technologies}
-                />
-              </div>
-            </FadeInSection>
+          {projects.map((project) => (
+            <div key={project.id} className="relative z-10">
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                image={project.image}
+                link={project.link}
+                technologies={project.technologies}
+              />
+            </div>
           ))}
         </div>
       </div>

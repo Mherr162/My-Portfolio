@@ -185,7 +185,7 @@ export function HeroSection() {
     <section 
       ref={sectionRef}
       id="hero" 
-      className="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden"
+      className="min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden bg-primary/5 dark:bg-primary/10"
     >
       {/* Interactive background */}
       {isClient && (

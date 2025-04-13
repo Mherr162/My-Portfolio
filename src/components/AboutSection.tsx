@@ -22,123 +22,121 @@ export function AboutSection() {
           </FadeInSection>
 
           {/* Main About content */}
-          <FadeInSection delay={0.2}>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-              <FadeInSection delay={0.2}>
-                <div className="relative z-10">
-                  <div className="relative min-h-[120px]">
-                    <div className="flex flex-wrap gap-2">
-                      {words.map((word, index) => (
-                        <motion.span
-                          key={index}
-                          className="text-lg inline-block"
-                          animate={isVideoPlaying ? {
-                            x: [
-                              0,
-                              Math.random() * 200 - 100,
-                              Math.random() * 200 - 100,
-                              0
-                            ],
-                            y: [
-                              0,
-                              Math.random() * 200 - 100,
-                              Math.random() * 200 - 100,
-                              0
-                            ],
-                            rotate: [
-                              0,
-                              Math.random() * 360 - 180,
-                              Math.random() * 360 - 180,
-                              0
-                            ],
-                            scale: [1, 1.2, 1.2, 1],
-                            opacity: [1, 0.8, 0.8, 1],
-                            color: ["inherit", "var(--primary)", "var(--primary)", "inherit"],
-                          } : {
-                            x: 0,
-                            y: 0,
-                            rotate: 0,
-                            scale: 1,
-                            opacity: 1,
-                            color: "inherit",
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <FadeInSection delay={0.2}>
+              <div className="relative z-10">
+                <div className="relative min-h-[120px]">
+                  <div className="flex flex-wrap gap-2">
+                    {words.map((word, index) => (
+                      <motion.span
+                        key={index}
+                        className="text-lg inline-block"
+                        animate={isVideoPlaying ? {
+                          x: [
+                            0,
+                            Math.random() * 200 - 100,
+                            Math.random() * 200 - 100,
+                            0
+                          ],
+                          y: [
+                            0,
+                            Math.random() * 200 - 100,
+                            Math.random() * 200 - 100,
+                            0
+                          ],
+                          rotate: [
+                            0,
+                            Math.random() * 360 - 180,
+                            Math.random() * 360 - 180,
+                            0
+                          ],
+                          scale: [1, 1.2, 1.2, 1],
+                          opacity: [1, 0.8, 0.8, 1],
+                          color: ["inherit", "var(--primary)", "var(--primary)", "inherit"],
+                        } : {
+                          x: 0,
+                          y: 0,
+                          rotate: 0,
+                          scale: 1,
+                          opacity: 1,
+                          color: "inherit",
+                        }}
+                        transition={{
+                          duration: 2,
+                          times: [0, 0.3, 0.7, 1],
+                          ease: "easeInOut",
+                          delay: index * 0.02,
+                        }}
+                      >
+                        {word}{" "}
+                      </motion.span>
+                    ))}
+                  </div>
+                  
+                  <AnimatePresence>
+                    {isVideoPlaying && (
+                      <motion.div
+                        className="absolute inset-0 pointer-events-none"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.8 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        <motion.div
+                          className="absolute inset-0 bg-primary/20 rounded-lg"
+                          animate={{
+                            scale: [1, 1.5, 1],
+                            opacity: [0.2, 0.4, 0.2],
                           }}
                           transition={{
                             duration: 2,
-                            times: [0, 0.3, 0.7, 1],
-                            ease: "easeInOut",
-                            delay: index * 0.02,
+                            repeat: Infinity,
+                            ease: "easeInOut"
                           }}
-                        >
-                          {word}{" "}
-                        </motion.span>
-                      ))}
-                    </div>
-                    
-                    <AnimatePresence>
-                      {isVideoPlaying && (
-                        <motion.div
-                          className="absolute inset-0 pointer-events-none"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0, scale: 0.8 }}
-                          transition={{ duration: 0.5 }}
-                        >
-                          <motion.div
-                            className="absolute inset-0 bg-primary/20 rounded-lg"
-                            animate={{
-                              scale: [1, 1.5, 1],
-                              opacity: [0.2, 0.4, 0.2],
-                            }}
-                            transition={{
-                              duration: 2,
-                              repeat: Infinity,
-                              ease: "easeInOut"
-                            }}
-                          />
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </div>
-
-                  {/* Video Section - Positioned below the About grid */}
-                  <div className="mt-16">
-                    <InfiniteLoopVideo
-                      src="/videos/about-video.mp4"
-                      className="w-full aspect-video rounded-lg shadow-lg"
-                      onPlay={() => setIsVideoPlaying(true)}
-                      onPause={() => setIsVideoPlaying(false)}
-                    />
-                    <p className="text-sm text-center text-muted-foreground mt-2">
-                      Watch my journey from electrician to software developer
-                    </p>
-                  </div>
+                        />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
                 </div>
-              </FadeInSection>
 
-              <FadeInSection delay={0.4}>
-                <div className="relative z-10">
-                  <h5 className="text-sm uppercase tracking-wider text-muted-foreground mb-2">My</h5>
-                  <h3 className="text-3xl font-bold mb-6">STORY</h3>
-
-                  <div className="bg-card rounded-lg p-6">
-                    <p className="mb-4">
-                      Established in my career as a licensed electrician at Baptist Health South Florida, I discovered
-                      my passion for technology and software development.
-                    </p>
-                    <p className="mb-4">
-                      While maintaining my role as an electrician, I pursued a Bachelor's degree in Computer Science
-                      at Florida International University, completing my education in 2024.
-                    </p>
-                    <p>
-                      Driven by a mission to build exceptional digital experiences, I've developed skills in Java,
-                      Python, JavaScript, and various web technologies, launching my career as an Associate Software
-                      Developer at Amazing Minds Therapy.
-                    </p>
-                  </div>
+                {/* Video Section - Positioned below the About grid */}
+                <div className="mt-16">
+                  <InfiniteLoopVideo
+                    src="/videos/about-video.mp4"
+                    className="w-full aspect-video rounded-lg shadow-lg"
+                    onPlay={() => setIsVideoPlaying(true)}
+                    onPause={() => setIsVideoPlaying(false)}
+                  />
+                  <p className="text-sm text-center text-muted-foreground mt-2">
+                    Watch my journey from electrician to software developer
+                  </p>
                 </div>
-              </FadeInSection>
-            </div>
-          </FadeInSection>
+              </div>
+            </FadeInSection>
+
+            <FadeInSection delay={0.4}>
+              <div className="relative z-10">
+                <h5 className="text-sm uppercase tracking-wider text-muted-foreground mb-2">My</h5>
+                <h3 className="text-3xl font-bold mb-6">STORY</h3>
+
+                <div className="bg-card rounded-lg p-6">
+                  <p className="mb-4">
+                    Established in my career as a licensed electrician at Baptist Health South Florida, I discovered
+                    my passion for technology and software development.
+                  </p>
+                  <p className="mb-4">
+                    While maintaining my role as an electrician, I pursued a Bachelor's degree in Computer Science
+                    at Florida International University, completing my education in 2024.
+                  </p>
+                  <p>
+                    Driven by a mission to build exceptional digital experiences, I've developed skills in Java,
+                    Python, JavaScript, and various web technologies, launching my career as an Associate Software
+                    Developer at Amazing Minds Therapy.
+                  </p>
+                </div>
+              </div>
+            </FadeInSection>
+          </div>
         </div>
 
         <Separator className="bg-neutral-800" />

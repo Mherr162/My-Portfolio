@@ -161,7 +161,7 @@ export function SkillsSection() {
   }, {} as Record<string, typeof skills>);
 
   return (
-    <section id="skills" className="py-24 px-6 md:px-16 overflow-hidden">
+    <section id="skills" className="min-h-screen py-32 px-6 md:px-16 relative bg-primary/5 dark:bg-primary/10">
       <div className="max-w-6xl mx-auto">
         <h5 className="text-sm uppercase tracking-wider text-muted-foreground mb-2">My Expertise</h5>
         <h2 className="section-title font-bold mb-12">SKILLS</h2>
