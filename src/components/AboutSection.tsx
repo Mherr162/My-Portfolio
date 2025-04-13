@@ -13,7 +13,7 @@ export function AboutSection() {
   const words = text.split(" ");
 
   return (
-    <section id="about" className="min-h-screen py-32 px-6 md:px-16 relative bg-primary/5 dark:bg-primary/10">
+    <section id="about" className="min-h-screen py-32 px-6 md:px-16 relative bg-primary/3 dark:bg-primary/15">
       <div className="max-w-6xl mx-auto space-y-32">
         <div className="relative">
           <FadeInSection delay={0}>

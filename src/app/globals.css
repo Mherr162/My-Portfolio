@@ -34,6 +34,36 @@
 
     --radius: 0.5rem;
   }
+
+  .dark {
+    --background: 45 90% 0%;
+    --foreground: 45 10% 90%;
+
+    --card: 45 90% 1%;
+    --card-foreground: 45 10% 90%;
+
+    --popover: 45 90% 0%;
+    --popover-foreground: 45 10% 90%;
+
+    --primary: 45 90% 98%;
+    --primary-foreground: 45 90% 0%;
+
+    --secondary: 45 90% 2%;
+    --secondary-foreground: 45 10% 90%;
+
+    --muted: 45 90% 2%;
+    --muted-foreground: 45 10% 65%;
+
+    --accent: 45 90% 2%;
+    --accent-foreground: 45 10% 90%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 45 10% 98%;
+
+    --border: 45 90% 2%;
+    --input: 45 90% 2%;
+    --ring: 45 90% 80%;
+  }
 }
 
 @layer base {
@@ -124,15 +154,15 @@ body {
 }
 
 .animate-delay-100 {
-  animation-delay: 100ms;
+  animation-delay: 0.1s;
 }
 
 .animate-delay-200 {
-  animation-delay: 200ms;
+  animation-delay: 0.2s;
 }
 
 .animate-delay-300 {
-  animation-delay: 300ms;
+  animation-delay: 0.3s;
 }
 
 /* Animations for Skills Section */
@@ -170,19 +200,115 @@ body {
 }
 
 @keyframes float1 {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-5px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 @keyframes float2 {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-7px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 @keyframes float3 {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-3px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* 3D Cube styles */
+.cube-container {
+  perspective: 1000px;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.cube-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cube-face.front {
+  transform: translateZ(150px);
+}
+
+.cube-face.back {
+  transform: translateZ(-150px) rotateY(180deg);
+}
+
+.cube-face.right {
+  transform: translateX(150px) rotateY(90deg);
+}
+
+.cube-face.left {
+  transform: translateX(-150px) rotateY(-90deg);
+}
+
+.cube-face.top {
+  transform: translateY(-150px) rotateX(90deg);
+}
+
+.cube-face.bottom {
+  transform: translateY(150px) rotateX(-90deg);
+}
+
+.cube-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cube-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.cube-button.active {
+  background: rgba(255, 255, 255, 0.8);
 }

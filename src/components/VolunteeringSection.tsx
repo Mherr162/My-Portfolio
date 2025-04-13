@@ -16,7 +16,7 @@ export function VolunteeringSection() {
   ];
 
   return (
-    <section id="volunteering" className="py-24 px-6 md:px-16 bg-primary/5 dark:bg-primary/10">
+    <section id="volunteering" className="py-24 px-6 md:px-16 bg-primary/3 dark:bg-primary/15">
       <div className="max-w-6xl mx-auto space-y-16">
         <FadeInSection delay={0}>
           <h2 className="section-title font-bold">VOLUNTEERING</h2>
