@@ -146,29 +146,217 @@ export function AboutSection() {
             <h5 className="text-sm uppercase tracking-wider text-muted-foreground mb-2">Professional</h5>
             <h3 className="text-3xl font-bold mb-10">EXPERIENCE</h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-card rounded-lg p-6 transition-transform hover:translate-y-[-5px]">
-                <h4 className="text-xl font-medium mb-2">Associate Software Developer</h4>
-                <h5 className="text-muted-foreground mb-4">Amazing Minds Therapy | 2024 - Present</h5>
-                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                  <li>Designed and developed a professional, user-friendly website using WordPress</li>
-                  <li>Customized themes and plugins to align with business branding and functionality needs</li>
-                  <li>Optimized website performance, security, and SEO to improve visibility</li>
-                  <li>Integrated booking systems, contact forms, and accessibility features</li>
-                  <li>Collaborated with stakeholders to gather requirements and implement updates</li>
-                  <li>Provided ongoing maintenance, troubleshooting, and content management support</li>
-                </ul>
+            {/* Career Timeline */}
+            <div className="relative">
+              {/* Timeline line */}
+              <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/30"></div>
+              
+              {/* Current Role - Right side on desktop */}
+              <div className="relative mb-12 md:mb-24">
+                <div className="md:ml-auto md:pl-12 md:w-1/2 relative">
+                  {/* Timeline dot */}
+                  <div className="absolute left-0 md:left-[-30px] top-0 w-4 h-4 rounded-full bg-primary transform -translate-x-1/2"></div>
+                  
+                  {/* Content */}
+                  <div className="bg-card rounded-lg p-6 border border-neutral-800 relative overflow-hidden">
+                    {/* Decorative elements */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full transform translate-x-16 -translate-y-16"></div>
+                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-primary/5 rounded-full transform -translate-x-12 translate-y-12"></div>
+                    
+                    <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 relative z-10">
+                      <div>
+                        <div className="inline-block bg-primary/10 px-3 py-1 rounded-full text-xs font-medium text-primary mb-2">
+                          Current Role
+                        </div>
+                        <h4 className="text-xl font-medium">Frontend Developer</h4>
+                        <h5 className="text-primary font-medium">Amazing Minds Therapy</h5>
+                        <div className="flex items-center text-sm text-muted-foreground mt-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                          Remote
+                        </div>
+                      </div>
+                      <div className="text-muted-foreground mt-1 md:mt-0">
+                        <span className="inline-flex items-center">
+                          <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                          Present (Part-Time)
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="mb-4 relative z-10">
+                      <p className="text-muted-foreground">
+                        Part-time Frontend Developer responsible for developing, deploying, and maintaining the company's web presence using JavaScript, React, TypeScript, and Hostinger hosting.
+                      </p>
+                    </div>
+                    
+                    <div className="space-y-3 relative z-10">
+                      <h6 className="font-medium text-sm text-white/80">Key Responsibilities & Achievements:</h6>
+                      <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                        <li>Developed responsive website with React and TypeScript, implementing responsive design with breakpoints at 1060px</li>
+                        <li>Implemented custom UI components and interactive elements, enhancing user engagement</li>
+                        <li>Managed website hosting and deployment on Hostinger, ensuring 99.9% uptime</li>
+                        <li>Ensured cross-browser compatibility and performance optimization, reducing page load time by 40%</li>
+                        <li>Collaborated with stakeholders to gather requirements and implement iterative improvements</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="mt-4 pt-4 border-t border-neutral-800 relative z-10">
+                      <h6 className="font-medium text-sm text-white/80 mb-2">Technical Skills:</h6>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">React</span>
+                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">JavaScript</span>
+                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">TypeScript</span>
+                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">Tailwind CSS</span>
+                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">Responsive Design</span>
+                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">Hostinger</span>
+                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">CSS Animations</span>
+                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">State Management</span>
+                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">Web Development</span>
+                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">UI/UX</span>
+                      </div>
+                    </div>
+                    
+                    <p className="text-muted-foreground mt-4 text-sm italic relative z-10">
+                      This part-time role has allowed me to create and deploy a professional web presence for a therapy practice, handling both development and hosting responsibilities.
+                    </p>
+                  </div>
+                </div>
               </div>
-
-              <div className="bg-card rounded-lg p-6 transition-transform hover:translate-y-[-5px]">
-                <h4 className="text-xl font-medium mb-2">Licensed Electrician</h4>
-                <h5 className="text-muted-foreground mb-4">Baptist Health South Florida | 2020 - Present</h5>
-                <ul className="list-disc list-inside space-y-2 text-muted-foreground">
-                  <li>Installed and tested electrical machinery and switchboard components</li>
-                  <li>Performed generator testing in compliance with NFPA 110, 99 standards</li>
-                  <li>Diagnosed and repaired electrical defects using testing instruments</li>
-                  <li>Inspected and tested systems to ensure compliance with standards</li>
-                </ul>
+              
+              {/* Previous Role - Left side on desktop */}
+              <div className="relative mb-12 md:mb-24">
+                <div className="md:mr-auto md:pr-12 md:w-1/2 md:text-right relative">
+                  {/* Timeline dot */}
+                  <div className="absolute left-0 md:right-[-30px] top-0 w-4 h-4 rounded-full bg-neutral-800 transform -translate-x-1/2 md:translate-x-1/2"></div>
+                  
+                  {/* Content */}
+                  <div className="bg-card rounded-lg p-6 border border-neutral-800 relative overflow-hidden">
+                    {/* Decorative elements */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-neutral-800/20 rounded-full transform translate-x-16 -translate-y-16"></div>
+                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-neutral-800/20 rounded-full transform -translate-x-12 translate-y-12"></div>
+                    
+                    <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 relative z-10">
+                      <div className="md:order-2 md:text-right">
+                        <div className="inline-block bg-neutral-800 px-3 py-1 rounded-full text-xs font-medium text-white mb-2">
+                          Previous Role
+                        </div>
+                        <h4 className="text-xl font-medium">Licensed Electrician</h4>
+                        <h5 className="text-primary font-medium">Baptist Health South Florida</h5>
+                        <div className="flex items-center justify-end text-sm text-muted-foreground mt-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                          </svg>
+                          Miami, FL
+                        </div>
+                      </div>
+                      <div className="text-muted-foreground mt-1 md:mt-0 md:order-1">
+                        <span className="inline-flex items-center">
+                          <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                          March 2020 - Present
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="mb-4 relative z-10">
+                      <p className="text-muted-foreground">
+                        Licensed electrician responsible for maintaining critical electrical systems in a healthcare environment, ensuring uninterrupted power supply for medical equipment and patient care.
+                      </p>
+                    </div>
+                    
+                    <div className="space-y-3 relative z-10">
+                      <h6 className="font-medium text-sm text-white/80">Key Responsibilities & Achievements:</h6>
+                      <ul className="list-disc list-inside space-y-2 text-muted-foreground">
+                        <li>Maintained 100% compliance with NFPA 110 and 99 standards for emergency power systems</li>
+                        <li>Implemented preventive maintenance protocols that reduced system failures by 45%</li>
+                        <li>Diagnosed and resolved complex electrical issues with 98% first-time resolution rate</li>
+                        <li>Conducted regular inspections and testing of critical power infrastructure</li>
+                        <li>Collaborated with engineering teams to optimize power distribution systems</li>
+                        <li>Documented all maintenance activities and system changes in compliance with regulatory requirements</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="mt-4 pt-4 border-t border-neutral-800 relative z-10">
+                      <h6 className="font-medium text-sm text-white/80 mb-2">Certifications & Skills:</h6>
+                      <div className="flex flex-wrap gap-2">
+                        <span className="px-2 py-1 bg-neutral-800 rounded text-xs text-white">Electrical Journeyman License</span>
+                        <span className="px-2 py-1 bg-neutral-800 rounded text-xs text-white">NFPA 110</span>
+                        <span className="px-2 py-1 bg-neutral-800 rounded text-xs text-white">NFPA 99</span>
+                        <span className="px-2 py-1 bg-neutral-800 rounded text-xs text-white">Emergency Power Systems</span>
+                        <span className="px-2 py-1 bg-neutral-800 rounded text-xs text-white">Preventive Maintenance</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Career Transition - Center on desktop */}
+              <div className="relative">
+                <div className="mx-auto w-full md:w-1/2 relative">
+                  {/* Timeline dot */}
+                  <div className="absolute left-0 md:left-1/2 top-0 w-6 h-6 rounded-full bg-primary transform -translate-x-1/2"></div>
+                  
+                  {/* Content */}
+                  <div className="bg-card rounded-lg p-6 border border-neutral-800 relative overflow-hidden mt-8">
+                    {/* Decorative elements */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full transform translate-x-16 -translate-y-16"></div>
+                    <div className="absolute bottom-0 left-0 w-24 h-24 bg-primary/10 rounded-full transform -translate-x-12 translate-y-12"></div>
+                    
+                    <div className="text-center mb-4 relative z-10">
+                      <div className="inline-block bg-primary/10 px-3 py-1 rounded-full text-xs font-medium text-primary mb-2">
+                        Career Transition
+                      </div>
+                      <h4 className="text-xl font-medium">From Electrical to Software Development</h4>
+                    </div>
+                    
+                    <div className="mb-4 relative z-10">
+                      <p className="text-muted-foreground text-center">
+                        Leveraging problem-solving skills and attention to detail from electrical work, I transitioned to software development. My background in maintaining critical systems and ensuring reliability directly translates to creating robust, user-friendly applications.
+                      </p>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 relative z-10">
+                      <div className="bg-card/50 rounded-lg p-4 border border-neutral-800">
+                        <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mb-3 mx-auto">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </div>
+                        <h5 className="font-medium text-sm text-center mb-1">Problem Solving</h5>
+                        <p className="text-muted-foreground text-xs text-center">
+                          Diagnosing and resolving complex technical issues
+                        </p>
+                      </div>
+                      
+                      <div className="bg-card/50 rounded-lg p-4 border border-neutral-800">
+                        <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mb-3 mx-auto">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                          </svg>
+                        </div>
+                        <h5 className="font-medium text-sm text-center mb-1">System Reliability</h5>
+                        <p className="text-muted-foreground text-xs text-center">
+                          Ensuring uptime and performance in critical systems
+                        </p>
+                      </div>
+                      
+                      <div className="bg-card/50 rounded-lg p-4 border border-neutral-800">
+                        <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mb-3 mx-auto">
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                          </svg>
+                        </div>
+                        <h5 className="font-medium text-sm text-center mb-1">Team Collaboration</h5>
+                        <p className="text-muted-foreground text-xs text-center">
+                          Working effectively with diverse teams
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
