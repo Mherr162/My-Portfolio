@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { FadeInSection } from './ui/FadeInSection';
 
 export function SkillsSection() {
   const [activeSkill, setActiveSkill] = useState<number | null>(null);
@@ -9,6 +10,7 @@ export function SkillsSection() {
   const [time, setTime] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
 
   const skills = [
     // Programming Languages
