@@ -13,7 +13,6 @@ const jobTitles = [
   "Software Engineer",
   "Full Stack Developer",
   "Frontend Developer",
-  "React Developer",
   "Web Developer"
 ];
 

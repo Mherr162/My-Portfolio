@@ -209,7 +209,7 @@ export function HeroSection() {
       {/* Code display */}
       <motion.div 
         key={key}
-        className="absolute top-12 xs:top-16 sm:top-20 md:top-24 lg:top-28 left-2 xs:left-4 sm:left-6 md:left-8 text-left z-20 w-full max-w-[90%] xs:max-w-[85%] sm:max-w-[80%] md:max-w-[75%] lg:max-w-[70%]"
+        className="absolute top-12 xs:top-16 sm:top-20 md:top-24 lg:top-28 left-2 xs:left-4 sm:left-6 md:left-8 text-left z-20 w-full max-w-[90%] xs:max-w-[85%] sm:max-w-[80%] md:max-w-[75%] lg:max-w-[70%] hidden md:block"
         initial={false}
         animate={isClient ? { opacity: 1 } : false}
         transition={{ duration: 0.5 }}
@@ -506,7 +506,7 @@ export function HeroSection() {
           <FadeInSection delay={0.3}>
             <TypewriterText
               text="<Software&nbsp;Engineer/>"
-              className="hero-title font-bold"
+              className="hero-title font-bold md:mt-0 mt-[-100px]"
               delay={0.5}
             />
           </FadeInSection>
