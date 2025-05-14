@@ -32,9 +32,9 @@ const projects = [
       "Personalized, Evidence-Based Therapy: Tailored to each child’s unique needs, focusing on the “Big 9” areas of speech-language pathology.",
       "Modern, Responsive Design: Ensures accessibility and a seamless experience across devices.",
       "Integrated Contact & Booking: Easy appointment scheduling and direct communication.",
-      "Positive Community Impact: Showcases real parent testimonials and a mission to foster growth, spark transformation, and celebrate progress.",
-      "> Note: The website is still under development. Some features and content may be incomplete or subject to change."
-    ]
+      "Positive Community Impact: Showcases real parent testimonials and a mission to foster growth, spark transformation, and celebrate progress."
+    ],
+    note: "Note: The website is still under development. Some features and content may be incomplete or subject to change."
   }
 ];
 
