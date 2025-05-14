@@ -23,15 +23,17 @@ const projects = [
     id: 2,
     title: "Amazing Minds Therapy Website",
     description: "Professional, user-friendly website for Amazing Minds Therapy using WordPress with customized themes and plugins aligned with business branding.",
-    technologies: ["WordPress", "Web Design", "SEO", "Custom Themes"],
+    technologies: ["React", "Typescript", "Tailwind CSS", "VITE", "Hostinger"],
     image: "/projects/Amazing-Minds-Therapy.png",
     link: "https://amazingmindstherapy.com/",
     sourceCode: null,
     highlights: [
-      "Customized WordPress theme to match brand identity",
-      "Implemented SEO best practices for better visibility",
-      "Created intuitive navigation and user flow",
-      "Integrated appointment booking system"
+      "Family-Centered Approach: Actively involves and educates families in the therapy process.",
+      "Personalized, Evidence-Based Therapy: Tailored to each child’s unique needs, focusing on the “Big 9” areas of speech-language pathology.",
+      "Modern, Responsive Design: Ensures accessibility and a seamless experience across devices.",
+      "Integrated Contact & Booking: Easy appointment scheduling and direct communication.",
+      "Positive Community Impact: Showcases real parent testimonials and a mission to foster growth, spark transformation, and celebrate progress.",
+      "> Note: The website is still under development. Some features and content may be incomplete or subject to change."
     ]
   }
 ];
