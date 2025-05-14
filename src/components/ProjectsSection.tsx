@@ -22,14 +22,14 @@ const projects = [
   {
     id: 2,
     title: "Amazing Minds Therapy Website",
-    description: "Professional, user-friendly website for Amazing Minds Therapy using WordPress with customized themes and plugins aligned with business branding.",
+    description: "Professional, user-friendly website for Amazing Minds Therapy using WordPress with customized themes and plugins aligned with business branding. \n\n Note: The website is still under development. Some features and content may be incomplete or subject to change.",
     technologies: ["React", "Typescript", "Tailwind CSS", "VITE", "Hostinger"],
     image: "/projects/Amazing-Minds-Therapy.png",
     link: "https://amazingmindstherapy.com/",
     sourceCode: null,
     highlights: [
       "Family-Centered Approach: Actively involves and educates families in the therapy process.",
-      "Personalized, Evidence-Based Therapy: Tailored to each child’s unique needs, focusing on the “Big 9” areas of speech-language pathology.",
+      "Personalized, Evidence-Based Therapy: Tailored to each child's unique needs, focusing on the \"Big 9\" areas of speech-language pathology.",
       "Modern, Responsive Design: Ensures accessibility and a seamless experience across devices.",
       "Integrated Contact & Booking: Easy appointment scheduling and direct communication.",
       "Positive Community Impact: Showcases real parent testimonials and a mission to foster growth, spark transformation, and celebrate progress."
@@ -67,7 +67,7 @@ export function ProjectsSection() {
                 <div className="space-y-8">
                   <div className="space-y-4">
                     <h3 className="text-5xl font-bold tracking-tight">{project.title}</h3>
-                    <p className="text-muted-foreground text-xl leading-relaxed">{project.description}</p>
+                    <p className="text-muted-foreground text-xl leading-relaxed whitespace-pre-line">{project.description}</p>
                   </div>
                   
                   <div className="space-y-4">
