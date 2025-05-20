@@ -11,7 +11,7 @@ const projects = [
     technologies: ["React", "Vite", "TMDB API", "React Router DOM", "JavaScript"],
     image: "/projects/Movie-Tracker.png",
     link: "https://react-app-green-nine.vercel.app/",
-    sourceCode: "https://github.com/yourusername/movie-tracker",
+    sourceCode: "https://github.com/Mherr162/React-App.git",
     highlights: [
       "Implemented real-time movie search with TMDB API integration",
       "Built responsive UI with modern React practices",
