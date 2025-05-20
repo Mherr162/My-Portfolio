@@ -29,14 +29,17 @@ export function ContactSection() {
         body: JSON.stringify(formData),
       })
 
+      const data = await response.json()
+
       if (!response.ok) {
-        throw new Error("Failed to send message")
+        throw new Error(data.details || data.error || "Failed to send message")
       }
 
       toast.success("Message sent successfully!")
       setFormData({ name: "", email: "", message: "" })
     } catch (error) {
-      toast.error("Failed to send message. Please try again.")
+      console.error("Contact form error:", error)
+      toast.error(error instanceof Error ? error.message : "Failed to send message. Please try again.")
     } finally {
       setIsSubmitting(false)
     }
