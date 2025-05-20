@@ -3,7 +3,7 @@
 import { Separator } from "./ui/separator";
 import { InfiniteLoopVideo } from "./InfiniteLoopVideo";
 import { FadeInSection } from "./ui/FadeInSection";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const text = "Highlighting my transition from a licensed electrician with extensive hands-on experience to a software developer with a robust academic foundation in computer science.";
@@ -16,9 +16,63 @@ const jobTitles = [
   "Web Developer"
 ];
 
+const skillSets = [
+  {
+    title: "Frontend Development",
+    skills: [
+      "React",
+      "JavaScript",
+      "TypeScript",
+      "Tailwind CSS",
+      "Responsive Design"
+    ]
+  },
+  {
+    title: "Backend Development",
+    skills: [
+      "Git", // Assuming Git fits better here or in DevOps, adjust if needed
+      "Node.js",
+      "Next.js",
+      "REST APIs",
+      "Testing"
+    ]
+  },
+  {
+    title: "DevOps & Tools",
+    skills: [
+      "Hostinger", // Assuming Hostinger fits here, adjust if needed
+      "CSS Animations", // Assuming CSS Animations fits here, adjust if needed
+      "State Management", // Assuming State Management fits here, adjust if needed
+      "Web Development", // This is a broad term, consider refining or placing elsewhere
+      "UI/UX" // Assuming UI/UX fits here, adjust if needed
+    ]
+  },
+  {
+    title: "Soft Skills",
+    skills: [
+      "Teamwork",
+      "Problem-solving",
+      "Adaptability",
+      "Time management",
+      "Critical thinking",
+      "Conflict resolution",
+      "Accountability"
+    ]
+  }
+];
+
 export function AboutSection() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [currentSkillSet, setCurrentSkillSet] = useState(0);
   const words = text.split(" ");
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSkillSet((prev) => (prev + 1) % skillSets.length);
+    }, 3000); // Change every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <section id="about" className="min-h-screen py-40 px-6 md:px-16 relative bg-primary/3 dark:bg-primary/15">
@@ -228,20 +282,32 @@ export function AboutSection() {
                     
                     <div className="mt-4 pt-4 border-t border-neutral-800 relative z-10">
                       <h6 className="font-medium text-sm text-white/80 mb-2">Technical Skills:</h6>
-                      <div className="flex flex-wrap gap-2">
-                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">React</span>
-                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">JavaScript</span>
-                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">TypeScript</span>
-                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">Tailwind CSS</span>
-                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">Responsive Design</span>
-                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">Hostinger</span>
-                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">CSS Animations</span>
-                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">State Management</span>
-                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">Web Development</span>
-                        <span className="px-2 py-1 bg-primary/10 rounded text-xs text-primary">UI/UX</span>
+                      <div className="flex flex-wrap gap-2 min-h-[32px]">
+                        <AnimatePresence mode="wait">
+                          <motion.div
+                            key={currentSkillSet}
+                            className="flex flex-wrap gap-2"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            transition={{ duration: 0.5 }}
+                          >
+                            {skillSets[currentSkillSet].skills.map((skill) => (
+                              <motion.span
+                                key={skill}
+                                className="px-2 py-1 bg-primary/10 rounded text-xs text-primary"
+                                initial={{ opacity: 0, scale: 0.8 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.3 }}
+                              >
+                                {skill}
+                              </motion.span>
+                            ))}
+                          </motion.div>
+                        </AnimatePresence>
                       </div>
                     </div>
-                    
+
                     <p className="text-muted-foreground mt-4 text-sm italic relative z-10">
                       This part-time role has allowed me to create and deploy a professional web presence for a therapy practice, handling both development and hosting responsibilities.
                     </p>
