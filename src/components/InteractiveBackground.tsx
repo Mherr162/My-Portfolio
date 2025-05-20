@@ -14,7 +14,6 @@ interface Particle {
 export function InteractiveBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const particlesRef = useRef<Particle[]>([])
-  const mouseRef = useRef({ x: 0, y: 0 })
   const animationFrameRef = useRef<number>()
 
   useEffect(() => {
@@ -40,22 +39,13 @@ export function InteractiveBackground() {
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           size: Math.random() * 3 + 1,
-          speedX: Math.random() * 3 - 1,
-          speedY: Math.random() * 3 - 1,
+          speedX: (Math.random() * 2 - 1) * 0.5,
+          speedY: (Math.random() * 2 - 1) * 0.5,
           opacity: Math.random() * 0.3 + 0.1,
         })
       }
     }
     initParticles()
-
-    // Mouse move handler
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current = {
-        x: e.clientX,
-        y: e.clientY,
-      }
-    }
-    window.addEventListener("mousemove", handleMouseMove)
 
     // Animation loop
     const animate = () => {
@@ -74,22 +64,6 @@ export function InteractiveBackground() {
         if (particle.y > canvas.height) particle.y = 0
         if (particle.y < 0) particle.y = canvas.height
 
-        // Calculate distance to mouse
-        const dx = mouseRef.current.x - particle.x
-        const dy = mouseRef.current.y - particle.y
-        const distance = Math.sqrt(dx * dx + dy * dy)
-
-        // Attract particles to mouse
-        if (distance < 200) {
-          const force = (200 - distance) / 2000
-          particle.speedX += dx * force
-          particle.speedY += dy * force
-        }
-
-        // Apply friction
-        particle.speedX *= 0.99
-        particle.speedY *= 0.99
-
         // Draw particle
         ctx.beginPath()
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
@@ -102,11 +76,11 @@ export function InteractiveBackground() {
           const dy = particle.y - otherParticle.y
           const distance = Math.sqrt(dx * dx + dy * dy)
 
-          if (distance < 100) {
+          if (distance < 150) {
             ctx.beginPath()
             ctx.moveTo(particle.x, particle.y)
             ctx.lineTo(otherParticle.x, otherParticle.y)
-            ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 * (1 - distance / 100)})`
+            ctx.strokeStyle = `rgba(255, 255, 255, ${0.1 * (1 - distance / 150)})`
             ctx.stroke()
           }
         })
@@ -119,7 +93,6 @@ export function InteractiveBackground() {
     // Cleanup
     return () => {
       window.removeEventListener("resize", setCanvasSize)
-      window.removeEventListener("mousemove", handleMouseMove)
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current)
       }
