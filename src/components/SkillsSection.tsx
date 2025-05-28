@@ -33,6 +33,7 @@ const skillLogos: Record<string, string> = {
   "Visual Studio": "/logos/Visual Studio.png",
   "GitHub Actions": "/logos/GitHub Actions.png",
   "GitHub Codespaces": "/logos/GitHub Codespaces.png",
+  "GitLab": "/logos/gitlab.png",
   "Linux": "/logos/Linux.png",
   "JetBrains": "/logos/JetBrains.png",
   "Eclipse": "/logos/Eclipse.png",
