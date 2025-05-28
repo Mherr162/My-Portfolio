@@ -15,7 +15,6 @@ const skillLogos: Record<string, string> = {
   "CSS3": "/logos/CSS3.png",
   "Tailwind CSS": "/logos/Tailwind CSS.png",
   "Node.js": "/logos/nodejs.png",
-  "Express.js": "/logos/expressjs.png",
   "React Router": "/logos/reactrouter.svg",
   "Git": "/logos/Git.png",
   "GitHub": "/logos/GitHub.png",
@@ -53,16 +52,14 @@ const skillCategories = [
   {
     name: "Backend Development",
     skills: [
-      "Node.js", "Express.js", "Django", "Python", "Java", "RESTful APIs", "GraphQL", "Database Design", 
-      "MySQL", "MongoDB", "Authentication", "Authorization", "API Security"
+      "Node.js", "Django", "Python", "Java", "RESTful APIs", "MySQL"
     ]
   },
   {
     name: "DevOps & Tools",
     skills: [
-      "Git", "GitHub", "GitHub Actions", "GitHub Codespaces", "Docker", "AWS", "Vercel", 
-      "Linux", "NPM", "Postman", "Visual Studio", "JetBrains", "Eclipse", "Jest", "Testing", 
-      "Debugging", "Performance Optimization"
+      "Git", "GitHub", "GitHub Actions", "GitHub Codespaces", "GitLab" , "Docker", "AWS", "Vercel", 
+      "Linux", "NPM", "Postman", "Visual Studio", "JetBrains", "Eclipse", "Debugging"
     ]
   },
   {
