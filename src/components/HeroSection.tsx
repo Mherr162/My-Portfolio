@@ -75,13 +75,14 @@ export function HeroSection() {
       }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const refCurrent = sectionRef.current;
+    if (refCurrent) {
+      observer.observe(refCurrent);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (refCurrent) {
+        observer.unobserve(refCurrent);
       }
     };
   }, [isClient]);
@@ -103,16 +104,11 @@ export function HeroSection() {
 
   // Function to create interactive letter component
   const InteractiveLetter = ({ char, index, delay, className = "" }: { char: string; index: number; delay: number; className?: string }) => {
-    if (!isClient) {
-      return <span className={className}>{char}</span>;
-    }
-
+    // Always call hooks at the top level
     const letterRef = useRef<HTMLSpanElement>(null);
     const springConfig = { damping: 15, stiffness: 150 };
-    
     const x = useMotionValue(0);
     const y = useMotionValue(0);
-    
     const distance = useTransform(
       [mouseX, mouseY],
       (latest) => {
@@ -124,15 +120,17 @@ export function HeroSection() {
         return Math.sqrt(Math.pow(mx - letterX, 2) + Math.pow(my - letterY, 2));
       }
     );
-
     const scale = useTransform(distance, [0, 100], [1.2, 1]);
     const rotate = useTransform(distance, [0, 100], [0, 360]);
-    
     const springX = useSpring(x, springConfig);
     const springY = useSpring(y, springConfig);
     const springScale = useSpring(scale, springConfig);
     const springRotate = useSpring(rotate, springConfig);
 
+    // Conditional rendering only
+    if (!isClient) {
+      return <span className={className}>{char}</span>;
+    }
     return (
       <motion.span
         ref={letterRef}

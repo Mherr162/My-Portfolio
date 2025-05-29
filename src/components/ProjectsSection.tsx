@@ -100,7 +100,6 @@ export function ProjectsSection() {
                 <section
                   key={project.id}
                   tabIndex={0}
-                  aria-selected={activeProject === idx}
                   className={`group transition-shadow duration-200 bg-card rounded-2xl border shadow-lg p-6 md:p-10 focus:ring-2 focus:ring-primary/50 outline-none cursor-pointer ${activeProject === idx ? 'ring-2 ring-primary/40' : ''}`}
                   onClick={() => setActiveProject(idx)}
                   onFocus={() => setActiveProject(idx)}

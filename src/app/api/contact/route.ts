@@ -39,9 +39,15 @@ export async function POST(request: Request) {
     try {
       await transporter.verify();
       console.log('Transporter verification successful');
-    } catch (verifyError: any) {
+    } catch (verifyError: unknown) {
       console.error('Transporter verification failed:', verifyError);
-      throw new Error(`Failed to verify email configuration: ${verifyError.message}`);
+      let errorMessage = 'Unknown error';
+      if (verifyError instanceof Error) {
+        errorMessage = verifyError.message;
+      } else if (typeof verifyError === 'string') {
+        errorMessage = verifyError;
+      }
+      throw new Error(`Failed to verify email configuration: ${errorMessage}`);
     }
 
     // Email content
@@ -64,14 +70,22 @@ export async function POST(request: Request) {
     console.log('Email sent successfully:', info);
 
     return NextResponse.json({ message: 'Email sent successfully' });
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Error sending email:', error);
     // Return more detailed error information
+    let details = 'Unknown error occurred';
+    let stack: string | undefined = undefined;
+    if (error instanceof Error) {
+      details = error.message;
+      stack = error.stack;
+    } else if (typeof error === 'string') {
+      details = error;
+    }
     return NextResponse.json(
-      { 
+      {
         error: 'Failed to send email',
-        details: error instanceof Error ? error.message : 'Unknown error occurred',
-        stack: error instanceof Error ? error.stack : undefined
+        details,
+        stack
       },
       { status: 500 }
     );
