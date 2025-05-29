@@ -1,21 +1,30 @@
 "use client";
 
-import { useEffect } from "react";
+import dynamicImport from 'next/dynamic';
+import { Suspense } from 'react';
 
-export default function ClientBody({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  // Remove any extension-added classes during hydration
-  useEffect(() => {
-    // This runs only on the client after hydration
-    document.body.className = "antialiased";
-  }, []);
+// Dynamically import components
+const DynamicProjectsSection = dynamicImport(() => import('@/components/ProjectsSection').then(mod => ({ default: mod.ProjectsSection })), {
+  loading: () => <div className="min-h-[400px] flex items-center justify-center">Loading projects...</div>,
+  ssr: false
+});
 
+const DynamicVolunteeringSection = dynamicImport(() => import('@/components/VolunteeringSection').then(mod => ({ default: mod.VolunteeringSection })), {
+  loading: () => <div className="min-h-[400px] flex items-center justify-center">Loading volunteering section...</div>,
+  ssr: false
+});
+
+const DynamicContactSection = dynamicImport(() => import('@/components/ContactSection').then(mod => ({ default: mod.ContactSection })), {
+  loading: () => <div className="min-h-[400px] flex items-center justify-center">Loading contact section...</div>,
+  ssr: false
+});
+
+export default function ClientBody() {
   return (
-    <body className="antialiased" suppressHydrationWarning>
-      {children}
-    </body>
+    <Suspense fallback={<div className="min-h-[400px] flex items-center justify-center">Loading content...</div>}>
+      <DynamicProjectsSection />
+      <DynamicVolunteeringSection />
+      <DynamicContactSection />
+    </Suspense>
   );
 }

@@ -25,6 +25,13 @@ export const metadata: Metadata = {
   },
 };
 
+// Add performance-related configurations
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -32,18 +39,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <style>{`
-          .next-logo {
-            display: none !important;
-          }
-        `}</style>
-      </head>
       <body className="min-h-screen antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
+          enableSystem={false}
           disableTransitionOnChange
         >
           {children}

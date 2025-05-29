@@ -6,7 +6,7 @@ const ASSET_PREFIX = "/_next/";
  * TurboPack ECMAScript runtimes.
  *
  * It will be prepended to the runtime code of each runtime.
- */ /* eslint-disable @typescript-eslint/no-unused-vars */ /// <reference path="./runtime-types.d.ts" />
+ */   /// <reference path="./runtime-types.d.ts" />
 const REEXPORTED_OBJECTS = Symbol("reexported objects");
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 const toStringTag = typeof Symbol !== "undefined" && Symbol.toStringTag;
@@ -335,7 +335,7 @@ relativeURL.prototype = URL.prototype;
  */ function requireStub(_moduleId) {
     throw new Error("dynamic usage of require is not supported");
 }
-/* eslint-disable @typescript-eslint/no-unused-vars */ /// <reference path="../shared/runtime-utils.ts" />
+  /// <reference path="../shared/runtime-utils.ts" />
 /// A 'base' utilities to support runtime can have externals.
 /// Currently this is for node.js / edge runtime both.
 /// If a fn requires node.js specific behavior, it should be placed in `node-external-utils` instead.
@@ -374,7 +374,7 @@ function externalRequire(id, thunk, esm = false) {
 externalRequire.resolve = (id, options)=>{
     return require.resolve(id, options);
 };
-/* eslint-disable @typescript-eslint/no-unused-vars */ const path = require("path");
+  const path = require("path");
 const relativePathToRuntimeRoot = path.relative(RUNTIME_PUBLIC_PATH, ".");
 // Compute the relative path to the `distDir`.
 const relativePathToDistRoot = path.join(relativePathToRuntimeRoot, RELATIVE_ROOT_PATH);
@@ -394,7 +394,7 @@ const ABSOLUTE_ROOT = path.resolve(__filename, relativePathToDistRoot);
     }
     return ABSOLUTE_ROOT;
 }
-/* eslint-disable @typescript-eslint/no-unused-vars */ /// <reference path="../shared/runtime-utils.ts" />
+  /// <reference path="../shared/runtime-utils.ts" />
 function readWebAssemblyAsResponse(path) {
     const { createReadStream } = require("fs");
     const { Readable } = require("stream");
@@ -415,7 +415,7 @@ async function instantiateWebAssemblyFromPath(path, importsObj) {
     const { instance } = await WebAssembly.instantiateStreaming(response, importsObj);
     return instance.exports;
 }
-/* eslint-disable @typescript-eslint/no-unused-vars */ /// <reference path="../shared/runtime-utils.ts" />
+  /// <reference path="../shared/runtime-utils.ts" />
 /// <reference path="../shared-node/base-externals-utils.ts" />
 /// <reference path="../shared-node/node-externals-utils.ts" />
 /// <reference path="../shared-node/node-wasm-utils.ts" />
@@ -510,7 +510,7 @@ async function loadChunkAsync(source, chunkData) {
             exports: {}
         };
         // TODO: Use vm.runInThisContext once our minimal supported Node.js version includes https://github.com/nodejs/node/pull/52153
-        // eslint-disable-next-line no-eval -- Can't use vm.runInThisContext due to https://github.com/nodejs/node/issues/52102
+         
         (0, eval)("(function(module, exports, require, __dirname, __filename) {" + contents + "\n})" + "\n//# sourceURL=" + url.pathToFileURL(resolved))(module1, module1.exports, localRequire, path.dirname(resolved), resolved);
         const chunkModules = module1.exports;
         for (const [moduleId, moduleFactory] of Object.entries(chunkModules)){

@@ -89,8 +89,8 @@ export function AboutSection() {
               <h3 className="text-lg font-medium mb-3">Professional Titles:</h3>
               <div className="flex flex-wrap gap-2">
                 {jobTitles.map((title, index) => (
-                  <span 
-                    key={index} 
+                  <span
+                    key={index}
                     className="px-3 py-1 bg-primary/10 rounded-full text-sm font-medium"
                   >
                     {title}
@@ -151,7 +151,7 @@ export function AboutSection() {
                       </motion.span>
                     ))}
                   </div>
-                  
+
                   <AnimatePresence>
                     {isVideoPlaying && (
                       <motion.div
@@ -186,7 +186,7 @@ export function AboutSection() {
                     onPlay={() => setIsVideoPlaying(true)}
                     onPause={() => setIsVideoPlaying(false)}
                   />
-                  
+
                 </div>
               </div>
             </FadeInSection>
@@ -198,18 +198,12 @@ export function AboutSection() {
 
                 <div className="bg-card rounded-lg p-6">
                   <p className="mb-4">
-                    Established in my career as a licensed electrician at Baptist Health South Florida, I discovered
-                    my passion for technology and software development.
+                    Throughout my professional career as a licensed electrician, I developed a strong foundation in problem-solving, technical systems, and hands-on project execution.
                   </p>
                   <p className="mb-4">
-                    While maintaining my role as an electrician, I pursued a Bachelor's degree in Computer Science
-                    at Florida International University.
+                    While continuing in this role, I pursued a Bachelor’s degree in Computer Science at Florida International University to transition into the software development field.
                   </p>
-                  <p>
-                    Driven by a mission to build exceptional digital experiences, I've developed skills in Java,
-                    Python, JavaScript, and various web technologies, launching my career as a Software
-                    Developer at Amazing Minds Therapy.
-                  </p>
+                  <p>Passionate about delivering impactful digital solutions, I gained proficiency in Java, Python, JavaScript, and modern web technologies. I now apply these skills as a Software Developer at Amazing Minds Therapy, where I design and implement user-focused software applications.</p>
                 </div>
               </div>
             </FadeInSection>
@@ -227,26 +221,26 @@ export function AboutSection() {
             <div className="relative">
               {/* Timeline line */}
               <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/30"></div>
-              
+
               {/* Current Role - Right side on desktop */}
               <div className="relative mb-12 md:mb-24">
                 <div className="md:ml-auto md:pl-12 md:w-1/2 relative">
                   {/* Timeline dot */}
                   <div className="absolute left-0 md:left-[-30px] top-0 w-4 h-4 rounded-full bg-primary transform -translate-x-1/2"></div>
-                  
+
                   {/* Content */}
                   <div className="bg-card rounded-lg p-6 border border-neutral-800 relative overflow-hidden">
                     {/* Decorative elements */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full transform translate-x-16 -translate-y-16"></div>
                     <div className="absolute bottom-0 left-0 w-24 h-24 bg-primary/5 rounded-full transform -translate-x-12 translate-y-12"></div>
-                    
+
                     <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 relative z-10">
                       <div>
                         <div className="inline-block bg-primary/10 px-3 py-1 rounded-full text-xs font-medium text-primary mb-2">
                           Current Role
                         </div>
-                        <h4 className="text-xl font-medium">Frontend Developer</h4>
-                        <h5 className="text-primary font-medium">Amazing Minds Therapy</h5>
+                        <h4 className="text-xl font-medium">Freelance Software Engineer </h4>
+                        <h5 className="text-primary font-medium">Amazing Minds Therapy (MIAMI THERAPY GROUP, LLC)</h5>
                         <div className="flex items-center text-sm text-muted-foreground mt-1">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -258,17 +252,17 @@ export function AboutSection() {
                       <div className="text-muted-foreground mt-1 md:mt-0">
                         <span className="inline-flex items-center">
                           <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                          Present (Part-Time)
+                          Jan 2025 - Present
                         </span>
                       </div>
                     </div>
-                    
+
                     <div className="mb-4 relative z-10">
                       <p className="text-muted-foreground">
-                        Part-time Frontend Developer responsible for developing, deploying, and maintaining the company's web presence using JavaScript, React, TypeScript, and Hostinger hosting.
+                        Freelance Software Engineer responsible for developing, deploying, and maintaining the company's web presence using JavaScript, React, TypeScript, and Hostinger hosting.
                       </p>
                     </div>
-                    
+
                     <div className="space-y-3 relative z-10">
                       <h6 className="font-medium text-sm text-white/80">Key Responsibilities & Achievements:</h6>
                       <ul className="list-disc list-inside space-y-2 text-muted-foreground">
@@ -279,7 +273,7 @@ export function AboutSection() {
                         <li>Collaborated with stakeholders to gather requirements and implement iterative improvements</li>
                       </ul>
                     </div>
-                    
+
                     <div className="mt-4 pt-4 border-t border-neutral-800 relative z-10">
                       <h6 className="font-medium text-sm text-white/80 mb-2">Technical Skills:</h6>
                       <div className="flex flex-wrap gap-2 min-h-[32px]">
@@ -309,24 +303,27 @@ export function AboutSection() {
                     </div>
 
                     <p className="text-muted-foreground mt-4 text-sm italic relative z-10">
-                      This part-time role has allowed me to create and deploy a professional web presence for a therapy practice, handling both development and hosting responsibilities.
+                      This freelance role has allowed me to create and deploy a professional web presence for a therapy practice, handling both development and hosting responsibilities.
+                      <br />
+                      <br />
+                      note: Website is under construction and will be launched soon.
                     </p>
                   </div>
                 </div>
               </div>
-              
+
               {/* Previous Role - Left side on desktop */}
               <div className="relative mb-12 md:mb-24">
                 <div className="md:mr-auto md:pr-12 md:w-1/2 md:text-right relative">
                   {/* Timeline dot */}
                   <div className="absolute left-0 md:right-[-30px] top-0 w-4 h-4 rounded-full bg-neutral-800 transform -translate-x-1/2 md:translate-x-1/2"></div>
-                  
+
                   {/* Content */}
                   <div className="bg-card rounded-lg p-6 border border-neutral-800 relative overflow-hidden">
                     {/* Decorative elements */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-neutral-800/20 rounded-full transform translate-x-16 -translate-y-16"></div>
                     <div className="absolute bottom-0 left-0 w-24 h-24 bg-neutral-800/20 rounded-full transform -translate-x-12 translate-y-12"></div>
-                    
+
                     <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4 relative z-10">
                       <div className="md:order-2 md:text-right">
                         <div className="inline-block bg-neutral-800 px-3 py-1 rounded-full text-xs font-medium text-white mb-2">
@@ -349,13 +346,13 @@ export function AboutSection() {
                         </span>
                       </div>
                     </div>
-                    
+
                     <div className="mb-4 relative z-10">
                       <p className="text-muted-foreground">
                         Licensed electrician responsible for maintaining critical electrical systems in a healthcare environment, ensuring uninterrupted power supply for medical equipment and patient care.
                       </p>
                     </div>
-                    
+
                     <div className="space-y-3 relative z-10">
                       <h6 className="font-medium text-sm text-white/80">Key Responsibilities & Achievements:</h6>
                       <ul className="list-disc list-inside space-y-2 text-muted-foreground">
@@ -367,7 +364,7 @@ export function AboutSection() {
                         <li>Documented all maintenance activities and system changes in compliance with regulatory requirements</li>
                       </ul>
                     </div>
-                    
+
                     <div className="mt-4 pt-4 border-t border-neutral-800 relative z-10">
                       <h6 className="font-medium text-sm text-white/80 mb-2">Certifications & Skills:</h6>
                       <div className="flex flex-wrap gap-2">
@@ -381,32 +378,32 @@ export function AboutSection() {
                   </div>
                 </div>
               </div>
-              
+
               {/* Career Transition - Center on desktop */}
               <div className="relative">
                 <div className="mx-auto w-full md:w-1/2 relative">
                   {/* Timeline dot */}
                   <div className="absolute left-0 md:left-1/2 top-0 w-6 h-6 rounded-full bg-primary transform -translate-x-1/2"></div>
-                  
+
                   {/* Content */}
                   <div className="bg-card rounded-lg p-6 border border-neutral-800 relative overflow-hidden mt-8">
                     {/* Decorative elements */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full transform translate-x-16 -translate-y-16"></div>
                     <div className="absolute bottom-0 left-0 w-24 h-24 bg-primary/10 rounded-full transform -translate-x-12 translate-y-12"></div>
-                    
+
                     <div className="text-center mb-4 relative z-10">
                       <div className="inline-block bg-primary/10 px-3 py-1 rounded-full text-xs font-medium text-primary mb-2">
                         Career Transition
                       </div>
                       <h4 className="text-xl font-medium">From Electrical to Software Development</h4>
                     </div>
-                    
+
                     <div className="mb-4 relative z-10">
                       <p className="text-muted-foreground text-center">
                         Leveraging problem-solving skills and attention to detail from electrical work, I transitioned to software development. My background in maintaining critical systems and ensuring reliability directly translates to creating robust, user-friendly applications.
                       </p>
                     </div>
-                    
+
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 relative z-10">
                       <div className="bg-card/50 rounded-lg p-4 border border-neutral-800">
                         <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mb-3 mx-auto">
@@ -419,7 +416,7 @@ export function AboutSection() {
                           Diagnosing and resolving complex technical issues
                         </p>
                       </div>
-                      
+
                       <div className="bg-card/50 rounded-lg p-4 border border-neutral-800">
                         <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mb-3 mx-auto">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -431,7 +428,7 @@ export function AboutSection() {
                           Ensuring uptime and performance in critical systems
                         </p>
                       </div>
-                      
+
                       <div className="bg-card/50 rounded-lg p-4 border border-neutral-800">
                         <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center mb-3 mx-auto">
                           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">

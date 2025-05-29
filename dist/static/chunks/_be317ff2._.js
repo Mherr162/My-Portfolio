@@ -17,7 +17,7 @@ const RUNTIME_PUBLIC_PATH = "/_next/";
  * TurboPack ECMAScript runtimes.
  *
  * It will be prepended to the runtime code of each runtime.
- */ /* eslint-disable @typescript-eslint/no-unused-vars */ /// <reference path="./runtime-types.d.ts" />
+ */   /// <reference path="./runtime-types.d.ts" />
 const REEXPORTED_OBJECTS = Symbol("reexported objects");
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 const toStringTag = typeof Symbol !== "undefined" && Symbol.toStringTag;
@@ -352,7 +352,7 @@ relativeURL.prototype = URL.prototype;
  *
  * It will be appended to the runtime code of each runtime right after the
  * shared runtime utils.
- */ /* eslint-disable @typescript-eslint/no-unused-vars */ /// <reference path="../base/globals.d.ts" />
+ */   /// <reference path="../base/globals.d.ts" />
 /// <reference path="../../../shared/runtime-utils.ts" />
 var SourceType = /*#__PURE__*/ function(SourceType) {
     /**
@@ -584,7 +584,7 @@ const regexCssUrl = /\.css(?:\?[^#]*)?(?:#.*)?$/;
  *
  * It will be appended to the runtime code of each runtime right after the
  * shared runtime utils.
- */ /* eslint-disable @typescript-eslint/no-unused-vars */ const devModuleCache = Object.create(null);
+ */   const devModuleCache = Object.create(null);
 class UpdateApplyError extends Error {
     name = "UpdateApplyError";
     dependencyChain;
@@ -1416,7 +1416,7 @@ globalThis.TURBOPACK_CHUNK_LISTS = {
  * ECMAScript DOM runtime.
  *
  * It will be appended to the base development runtime code.
- */ /* eslint-disable @typescript-eslint/no-unused-vars */ /// <reference path="../../../browser/runtime/base/runtime-base.ts" />
+ */   /// <reference path="../../../browser/runtime/base/runtime-base.ts" />
 /// <reference path="../../../shared/runtime-types.d.ts" />
 let BACKEND;
 function augmentContext(context) {
@@ -1578,7 +1578,7 @@ async function loadWebAssemblyModule(_source, wasmChunkPath) {
  * ECMAScript DOM runtime.
  *
  * It will be appended to the base development runtime code.
- */ /* eslint-disable @typescript-eslint/no-unused-vars */ /// <reference path="../base/runtime-base.ts" />
+ */   /// <reference path="../base/runtime-base.ts" />
 /// <reference path="../base/dev-base.ts" />
 /// <reference path="./runtime-backend-dom.ts" />
 /// <reference path="../../../shared/require-type.d.ts" />
@@ -1663,7 +1663,7 @@ function _eval({ code, url, map }) {
         // See https://stackoverflow.com/a/26603875
         unescape(encodeURIComponent(map)))}`;
     }
-    // eslint-disable-next-line no-eval
+     
     return eval(code);
 }
 const chunksToRegister = globalThis.TURBOPACK;

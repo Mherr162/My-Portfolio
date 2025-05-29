@@ -128,7 +128,7 @@ export function Navbar() {
                     }}
                     transition={{
                       duration: 1.5,
-                      repeat: isHovered ? Infinity : 0,
+                      repeat: isHovered ? Number.POSITIVE_INFINITY : 0,
                     }}
                     style={{
                       backgroundSize: "200% 100%",
@@ -143,7 +143,7 @@ export function Navbar() {
                     }}
                     transition={{
                       duration: 1.5,
-                      repeat: isHovered ? Infinity : 0,
+                      repeat: isHovered ? Number.POSITIVE_INFINITY : 0,
                       delay: 0.1,
                     }}
                     style={{
