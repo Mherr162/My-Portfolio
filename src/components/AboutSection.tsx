@@ -109,30 +109,8 @@ export function AboutSection() {
                     {words.map((word, index) => (
                       <motion.span
                         key={index}
-                        className="text-lg inline-block"
-                        animate={isVideoPlaying ? {
-                          x: [
-                            0,
-                            Math.random() * 200 - 100,
-                            Math.random() * 200 - 100,
-                            0
-                          ],
-                          y: [
-                            0,
-                            Math.random() * 200 - 100,
-                            Math.random() * 200 - 100,
-                            0
-                          ],
-                          rotate: [
-                            0,
-                            Math.random() * 360 - 180,
-                            Math.random() * 360 - 180,
-                            0
-                          ],
-                          scale: [1, 1.2, 1.2, 1],
-                          opacity: [1, 0.8, 0.8, 1],
-                          color: ["inherit", "var(--primary)", "var(--primary)", "inherit"],
-                        } : {
+                        className="text-lg inline-block cursor-pointer"
+                        initial={{
                           x: 0,
                           y: 0,
                           rotate: 0,
@@ -140,14 +118,20 @@ export function AboutSection() {
                           opacity: 1,
                           color: "inherit",
                         }}
-                        transition={{
-                          duration: 2,
-                          times: [0, 0.3, 0.7, 1],
-                          ease: "easeInOut",
-                          delay: index * 0.02,
+                        whileHover={{
+                          x: [0, Math.random() * 20 - 10, Math.random() * 20 - 10, 0],
+                          y: [0, Math.random() * 20 - 10, Math.random() * 20 - 10, 0],
+                          rotate: [0, Math.random() * 40 - 20, Math.random() * 40 - 20, 0],
+                          scale: [1, 1.2, 1.2, 1],
+                          opacity: [1, 0.8, 0.8, 1],
+                          color: ["inherit", "var(--primary)", "var(--primary)", "inherit"],
+                          transition: {
+                            duration: 0.8,
+                            ease: "easeInOut"
+                          }
                         }}
                       >
-                        {word}{" "}
+                        {word}&nbsp;
                       </motion.span>
                     ))}
                   </div>
