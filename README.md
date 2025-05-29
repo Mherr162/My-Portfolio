@@ -6,7 +6,7 @@ Welcome to my personal portfolio website! This modern, interactive site is desig
 
 ## 📝 Project Overview
 
-- **Live Demo:** [Your Vercel URL here]
+- **Live Demo:** https://myportfolio-wine-six-73.vercel.app/
 - **Author:** Michel Herrera
 - **Tech Stack:** Next.js, React, TypeScript, Tailwind CSS, Framer Motion, Nodemailer (for contact form)
 
