@@ -1,6 +1,22 @@
 # My Portfolio
 
-A modern, interactive portfolio website showcasing my skills, projects, and professional experience.
+Welcome to my personal portfolio website! This modern, interactive site is designed to showcase my skills, projects, professional experience, and provide a way for visitors to contact me directly.
+
+---
+
+## 📝 Project Overview
+
+- **Live Demo:** [Your Vercel URL here]
+- **Author:** Michel Herrera
+- **Tech Stack:** Next.js, React, TypeScript, Tailwind CSS, Framer Motion, Nodemailer (for contact form)
+
+This portfolio includes:
+- Interactive hero and skills sections
+- Project showcase with detailed case studies
+- Timeline of experience, volunteering, and certifications
+- Contact form with email integration
+
+---
 
 ## 🚀 Technologies Used
 
@@ -58,32 +74,70 @@ The portfolio is fully responsive and works on:
 
 ## 📦 Installation & Setup
 
-1. Clone the repository:
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/yourusername/my-portfolio.git
    cd my-portfolio
    ```
 
-2. Install dependencies:
+2. **Install dependencies:**
    ```bash
    npm install
    ```
 
-3. Run the development server:
+3. **Set up environment variables:**
+   - Create a `.env.local` file in the root directory.
+   - Add the following (required for the contact form to work):
+     ```env
+     EMAIL_USER=your_gmail_address@gmail.com
+     EMAIL_PASSWORD=your_gmail_app_password
+     ```
+     - `EMAIL_USER`: Your Gmail address (used for sending contact form emails)
+     - `EMAIL_PASSWORD`: [Gmail App Password](https://support.google.com/accounts/answer/185833?hl=en) (not your regular password)
+
+4. **Run the development server:**
    ```bash
    npm run dev
    ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+---
+
+## 🔒 Environment Variables
+
+The contact form uses Gmail SMTP via Nodemailer. You must set the following in your `.env.local` file:
+
+```env
+EMAIL_USER=your_gmail_address@gmail.com
+EMAIL_PASSWORD=your_gmail_app_password
+```
+
+- Generate an App Password in your Google Account security settings with 2-Step Verification enabled.
+- **Never commit your `.env.local` file to version control.**
 
 ## 🚀 Deployment
 
-The portfolio is deployed on Vercel. Any push to the main branch will automatically trigger a new deployment.
+The portfolio is deployed on [Vercel](https://vercel.com/). Any push to the main branch will automatically trigger a new deployment.
+
+To deploy your own:
+1. Push your code to GitHub.
+2. Connect the repo to Vercel.
+3. Set the environment variables (`EMAIL_USER`, `EMAIL_PASSWORD`) in your Vercel project settings.
+4. Deploy!
+
+---
 
 ## 📝 License
 
 This project is open source and available under the [MIT License](LICENSE).
 
+---
+
 ## 📞 Contact
 
-Feel free to reach out if you have any questions or would like to collaborate on a project!
+If you have questions, feedback, or would like to collaborate, please use the contact form on the site or reach out via [your preferred contact method].
+
+---
+
+**Thank you for visiting my portfolio!**
