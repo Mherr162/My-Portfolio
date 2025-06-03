@@ -22,6 +22,22 @@ const projects = [
   },
   {
     id: 2,
+    title: "CoinBase Trading Bot",
+    description: "A modern React application that automates cryptocurrency trading on CoinBase. Built with React and TypeScript, it features real-time market data retrieval, automated trade execution, and robust error handling. The app integrates with the CoinBase API and uses environment variables for secure configuration. Note: User login functionality is currently under development.",
+    technologies: ["React", "TypeScript", "CoinBase API", "Node.js"],
+    image: "/projects/CBTradingBot.png",
+    link: "https://coin-base-trading-bot-neon.vercel.app/",
+    sourceCode: "https://github.com/Mherr162/CoinBase_Trading-Bot.git",
+    highlights: [
+      "Integrated real-time market data and trading with the CoinBase API",
+      "Developed a modular, type-safe codebase using React and TypeScript",
+      "Implemented reliable API communication with custom retry logic",
+      "Secured sensitive data using .env configuration",
+      "Designed the architecture to support future enhancements, including user authentication"
+    ]
+  },
+  {
+    id: 3,
     title: "Amazing Minds Therapy Website",
     description: "Professional, user-friendly website for Amazing Minds Therapy using WordPress with customized themes and plugins aligned with business branding. \n\n Note: The website is still under development. Some features and content may be incomplete or subject to change.",
     technologies: ["React", "Typescript", "Tailwind CSS", "VITE", "Hostinger"],
