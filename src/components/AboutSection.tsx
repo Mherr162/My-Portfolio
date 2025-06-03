@@ -185,7 +185,7 @@ export function AboutSection() {
                     Throughout my professional career as a licensed electrician, I developed a strong foundation in problem-solving, technical systems, and hands-on project execution.
                   </p>
                   <p className="mb-4">
-                    While continuing in this role, I pursued a Bachelor’s degree in Computer Science at Florida International University to transition into the software development field.
+                    While continuing in this role, I pursued a Bachelor's degree in Computer Science at Florida International University to transition into the software development field.
                   </p>
                   <p>Passionate about delivering impactful digital solutions, I gained proficiency in Java, Python, JavaScript, and modern web technologies. I now apply these skills as a Software Developer at Amazing Minds Therapy, where I design and implement user-focused software applications.</p>
                 </div>
@@ -213,7 +213,7 @@ export function AboutSection() {
                   <div className="absolute left-0 md:left-[-30px] top-0 w-4 h-4 rounded-full bg-primary transform -translate-x-1/2"></div>
 
                   {/* Content */}
-                  <div className="bg-card rounded-lg p-6 border border-neutral-800 relative overflow-hidden">
+                  <div className="bg-card rounded-lg p-4 md:p-6 border border-neutral-800 relative overflow-hidden">
                     {/* Decorative elements */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full transform translate-x-16 -translate-y-16"></div>
                     <div className="absolute bottom-0 left-0 w-24 h-24 bg-primary/5 rounded-full transform -translate-x-12 translate-y-12"></div>
@@ -303,7 +303,7 @@ export function AboutSection() {
                   <div className="absolute left-0 md:right-[-30px] top-0 w-4 h-4 rounded-full bg-neutral-800 transform -translate-x-1/2 md:translate-x-1/2"></div>
 
                   {/* Content */}
-                  <div className="bg-card rounded-lg p-6 border border-neutral-800 relative overflow-hidden">
+                  <div className="bg-card rounded-lg p-4 md:p-6 border border-neutral-800 relative overflow-hidden">
                     {/* Decorative elements */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-neutral-800/20 rounded-full transform translate-x-16 -translate-y-16"></div>
                     <div className="absolute bottom-0 left-0 w-24 h-24 bg-neutral-800/20 rounded-full transform -translate-x-12 translate-y-12"></div>
@@ -370,7 +370,7 @@ export function AboutSection() {
                   <div className="absolute left-0 md:left-1/2 top-0 w-6 h-6 rounded-full bg-primary transform -translate-x-1/2"></div>
 
                   {/* Content */}
-                  <div className="bg-card rounded-lg p-6 border border-neutral-800 relative overflow-hidden mt-8">
+                  <div className="bg-card rounded-lg p-4 md:p-6 border border-neutral-800 relative overflow-hidden mt-8">
                     {/* Decorative elements */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full transform translate-x-16 -translate-y-16"></div>
                     <div className="absolute bottom-0 left-0 w-24 h-24 bg-primary/10 rounded-full transform -translate-x-12 translate-y-12"></div>
