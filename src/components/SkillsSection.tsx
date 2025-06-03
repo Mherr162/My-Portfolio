@@ -108,7 +108,7 @@ export function SkillsSection() {
             </svg>
           </button>
           
-          <div className="flex gap-2 flex-wrap">
+          <div className="flex flex-col items-center md:flex-row gap-2 flex-wrap">
             {skillCategories.map((category, index) => (
               <button
                 key={category.name}
