@@ -273,7 +273,7 @@ export function AboutSection() {
                             {skillSets[currentSkillSet].skills.map((skill) => (
                               <motion.span
                                 key={skill}
-                                className="skill-badge px-2 py-1 bg-primary/10 rounded text-xs text-primary"
+                                className="px-2 py-1 bg-primary/10 rounded text-xs text-primary min-w-[90px] text-center justify-center flex"
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.3 }}
