@@ -75,8 +75,8 @@ export function AboutSection() {
   }, []);
 
   return (
-    <section id="about" className="min-h-screen py-40 px-6 md:px-16 relative bg-primary/3 dark:bg-primary/15">
-      <div className="max-w-6xl mx-auto space-y-32">
+    <section id="about" className="py-16 px-6 md:px-16 relative bg-primary/3 dark:bg-primary/15">
+      <div className="max-w-6xl mx-auto space-y-12">
         <div className="relative">
           <FadeInSection delay={0}>
             <h5 className="text-sm uppercase tracking-wider text-muted-foreground mb-2">Get To Know</h5>

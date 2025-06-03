@@ -55,9 +55,9 @@ export function ContactSection() {
   return (
     <section 
       id="contact" 
-      className="min-h-screen py-40 px-6 md:px-16 relative bg-primary/3 dark:bg-primary/15"
+      className="py-16 px-6 md:px-16 relative bg-primary/3 dark:bg-primary/15"
     >
-      <div className="max-w-6xl mx-auto space-y-16">
+      <div className="max-w-6xl mx-auto space-y-8">
         <FadeInSection delay={0}>
           <h2 className="section-title font-bold">CONTACT</h2>
         </FadeInSection>
