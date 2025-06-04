@@ -45,11 +45,11 @@ const projects = [
     link: "https://amazingmindstherapy.com/",
     sourceCode: null,
     highlights: [
-      "Family-Centered Approach: Actively involves and educates families in the therapy process.",
-      "Personalized, Evidence-Based Therapy: Tailored to each child's unique needs, focusing on the \"Big 9\" areas of speech-language pathology.",
-      "Modern, Responsive Design: Ensures accessibility and a seamless experience across devices.",
-      "Integrated Contact & Booking: Easy appointment scheduling and direct communication.",
-      "Positive Community Impact: Showcases real parent testimonials and a mission to foster growth, spark transformation, and celebrate progress."
+      "Developed a modern web application for a therapy practice using React, TypeScript, and Vite",
+      "Built responsive UI components using Radix UI and shadcn/ui",
+      "Implemented form handling and validation with React Hook Form and Zod",
+      "Optimized application performance and maintained code quality with TypeScript and ESLint",
+      "Collaborated with stakeholders to implement features improving client engagement"
     ],
     note: "Note: The website is still under development. Some features and content may be incomplete or subject to change."
   }
