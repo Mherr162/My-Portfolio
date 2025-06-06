@@ -39,10 +39,10 @@ const projects = [
   {
     id: 3,
     title: "Amazing Minds Therapy Website",
-    description: "Professional, user-friendly website for Amazing Minds Therapy using WordPress with customized themes and plugins aligned with business branding. \n\n Note: The website is still under development. Some features and content may be incomplete or subject to change.",
+    description: "Professional, user-friendly website for Amazing Minds Therapy using WordPress with customized themes and plugins aligned with business branding.",
     technologies: ["React", "Typescript", "Tailwind CSS", "VITE", "Hostinger"],
     image: "/projects/Amazing-Minds-Therapy.png",
-    link: "https://amazingmindstherapy.com/",
+    link: "null",
     sourceCode: null,
     highlights: [
       "Developed a modern web application for a therapy practice using React, TypeScript, and Vite",
@@ -51,7 +51,7 @@ const projects = [
       "Optimized application performance and maintained code quality with TypeScript and ESLint",
       "Collaborated with stakeholders to implement features improving client engagement"
     ],
-    note: "Note: The website is still under development. Some features and content may be incomplete or subject to change."
+    note: "Note: The website is still under development."
   }
 ];
 
@@ -160,14 +160,16 @@ export function ProjectsSection() {
                       </ul>
                     </div>
                     <div className="flex gap-6 pt-4">
-                      <a
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center text-primary hover:underline text-lg md:text-xl font-medium"
-                      >
-                        View Website →
-                      </a>
+                      {project.link !== "null" && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-primary hover:underline text-lg md:text-xl font-medium"
+                        >
+                          View Website →
+                        </a>
+                      )}
                       {project.sourceCode && (
                         <a
                           href={project.sourceCode}
@@ -177,6 +179,9 @@ export function ProjectsSection() {
                         >
                           Source Code →
                         </a>
+                      )}
+                      {project.note && (
+                        <p className="text-muted-foreground text-base"><em>{project.note}</em></p>
                       )}
                     </div>
                   </div>
