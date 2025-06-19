@@ -22,7 +22,7 @@ const projects = [
   },
   {
     id: 2,
-    title: "CoinBase Trading Bot",
+    title: "Crypto Trading Bot",
     description: "A modern React application that automates cryptocurrency trading on CoinBase. Built with React and TypeScript, it features real-time market data retrieval, automated trade execution, and robust error handling. The app integrates with the CoinBase API and uses environment variables for secure configuration. Note: User login functionality is currently under development.",
     technologies: ["React", "TypeScript", "CoinBase API", "Node.js"],
     image: "/projects/CBTradingBot.png",
